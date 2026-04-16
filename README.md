@@ -4,20 +4,48 @@ Politik ekoloji, çevre adaleti ve disiplinlerarası buluşmalar üzerine bir ko
 
 **https://enfiye.github.io/birbucuk/**
 
+---
+
 ## Programlar
 
 ### Solunum (2017–2019)
-Studio-X İstanbul'da gerçekleştirilen kapalı yuvarlak masa toplantıları. Dokuz buluşma: Su, Biyoçeşitlilik, Metabolizma, Sınırlar, İklim, Maden, Toplumsal Cinsiyet, Enerji, Toprak.
+Studio-X İstanbul'da gerçekleştirilen kapalı yuvarlak masa toplantıları. Dokuz buluşma: Su, Biyoçeşitlilik, Metabolizma, Sınırlar, İklim, Maden, Toplumsal Cinsiyet, Enerji, Toprak. Ayrıca Açık Radyo röportajı (Mart 2018).
 
 ### Sindirim (2019)
-16\. İstanbul Bienali "Yedinci Kıta" teması altında WORLBMON'da gerçekleştirilen kamusal buluşmalar. Beş nesne: Su, Benzin, Patates, Beton, İşlemci.
+16. İstanbul Bienali "Yedinci Kıta" teması altında WORLBMON'da (MSGSÜ İstanbul Resim ve Heykel Müzesi) gerçekleştirilen kamusal buluşmalar. Beş nesne: Su, Benzin, Patates, Beton, İşlemci.
 
-### Açık Radyo Röportajı (2018)
-birbuçuk'un Açık Radyo'daki söyleşisi.
+---
 
-## Arşiv
+## Arşiv Yapısı
 
-Metinler, sohbetlerden arda kalan, anonimleştirilerek kolektif bir söze dönüştürülmüş cümlelerdir. PDF olarak indirilebilir.
+```
+site/
+  index.html          — Dil seçim sayfası (TR/EN/FR/DE)
+  style.css           — Ortak stil dosyası
+  tr/                 — Türkçe (kaynak / otorite)
+  en/                 — İngilizce çeviriler
+  fr/                 — Fransızca çeviriler
+  de/                 — Almanca çeviriler
+  [lang]/pdf/         — PDF'ler (65 toplam: 20 TR + 15 EN + 15 FR + 15 DE)
+```
+
+Her dilde 15 belge: 9 Solunum toplantısı + 5 Sindirim Kamusal toplantısı + 1 Radyo röportajı.
+
+**Türkçe PDF'ler kaynak metinlerdir.** Tüm çeviriler Türkçe'den yapılmıştır.
+
+---
+
+## PDF Üretimi
+
+PDF'ler `make_pdf.py` ile ReportLab Platypus kullanılarak üretilmiştir. İsviçre tipografisi, Lato ailesi fontlar, #CC0000 kırmızı aksanı.
+
+```python
+make_pdf(output_path, lang_code, program_label, topic, date_str, body_text, is_radio=False)
+```
+
+Üretim scriptleri: `/tmp/gen_[konu]_[dil].py`
+
+---
 
 ## Kurucu Ekip
 
