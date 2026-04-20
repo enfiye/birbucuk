@@ -47,6 +47,38 @@ section + section { border-top: 1px solid var(--rule); }
 .radyo-card .rc-names { font-size: 0.78rem; color: var(--grey); font-weight: 300; margin-top: 0.35rem; }
 .dl-btn { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--red); text-decoration: none; border: 1.5px solid var(--red); padding: 0.3rem 0.65rem; transition: all 0.12s; white-space: nowrap; }
 .dl-btn:hover { background: var(--red); color: var(--white); }
+/* ---------- Session page ---------- */
+.session-page nav .lang-switch .disabled { font-size: 0.65rem; padding: 0.2rem 0.4rem; border: 1px solid var(--rule); color: #bbb; }
+article.session { padding: 3.5rem 0 2rem; }
+article.session .wrap { max-width: 720px; }
+.s-head { margin-bottom: 2.5rem; padding-bottom: 1.75rem; border-bottom: 1.5px solid var(--black); }
+.s-meta { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey); margin-bottom: 1.25rem; }
+.s-meta .s-date { color: var(--red); }
+.s-topic { font-size: 2.75rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; color: var(--black); }
+.s-context { margin-top: 1rem; font-size: 0.95rem; font-weight: 300; line-height: 1.65; color: var(--dark); max-width: 620px; }
+.s-attendees { margin-bottom: 2.25rem; font-size: 0.82rem; line-height: 1.75; color: var(--grey); }
+.s-attendees:empty, .s-intro:empty { display: none; }
+.s-attendees p { margin-bottom: 0.3rem; }
+.s-attendees strong { color: var(--black); font-weight: 700; }
+.s-intro { margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule); font-size: 1rem; font-style: italic; font-weight: 300; line-height: 1.8; color: var(--dark); }
+.s-intro p { margin-bottom: 1rem; }
+.s-intro p:last-child { margin-bottom: 0; }
+.s-body { font-size: 1.02rem; line-height: 1.8; color: var(--black); }
+.s-body p { margin-bottom: 1.15rem; font-weight: 400; }
+.s-body h2 { font-size: 0.82rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); margin: 2.75rem 0 1.1rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); scroll-margin-top: 80px; }
+.s-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.s-body blockquote { margin: 1.25rem 0 1.25rem 1.25rem; padding: 0.35rem 0 0.35rem 1.25rem; border-left: 2px solid var(--red); font-weight: 300; font-style: italic; color: var(--dark); font-size: 1.02rem; }
+.s-body hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+.s-body .radio-line { margin-bottom: 0.75rem; }
+.s-body .radio-line .spk { color: var(--red); font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.s-pdf { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); text-align: center; }
+.s-pn { display: flex; justify-content: space-between; align-items: center; margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1.5px solid var(--black); gap: 1rem; }
+.pn-slot { flex: 1 1 0; }
+.pn-slot-next { text-align: right; }
+.pn-link { text-decoration: none; color: var(--black); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.15s; }
+.pn-link:hover { color: var(--red); }
+@media (max-width: 600px) { .s-topic { font-size: 2rem; } article.session { padding: 2rem 0 1.5rem; } }
+
 footer { border-top: 1.5px solid var(--black); padding: 1.3rem 0; }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; }
 footer .fl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
