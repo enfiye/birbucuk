@@ -20,13 +20,16 @@ Studio-X İstanbul'da gerçekleştirilen kapalı yuvarlak masa toplantıları. D
 
 ```
 site/
-  index.html          — Dil seçim sayfası (TR/EN/FR/DE)
+  index.html          — Dil seçim sayfası (TR/EN/DE/FR/ES/IT/PT)
   style.css           — Ortak stil dosyası
   tr/                 — Türkçe (kaynak / otorite)
   en/                 — İngilizce çeviriler
-  fr/                 — Fransızca çeviriler
   de/                 — Almanca çeviriler
-  [lang]/pdf/         — PDF'ler (65 toplam: 20 TR + 15 EN + 15 FR + 15 DE)
+  fr/                 — Fransızca çeviriler
+  es/                 — İspanyolca çeviriler
+  it/                 — İtalyanca çeviriler
+  pt/                 — Portekizce çeviriler
+  [lang]/pdf/         — PDF'ler (105 toplam: 15 × 7 dil)
 ```
 
 Her dilde 15 belge: 9 Solunum toplantısı + 5 Sindirim Kamusal toplantısı + 1 Radyo röportajı.
