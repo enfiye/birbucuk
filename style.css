@@ -1,7 +1,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root { --red: #CC0000; --black: #111; --dark: #333; --grey: #777; --rule: #ddd; --white: #fff; --gutter: 2.5rem; --col: 1200px; }
 html { font-size: 16px; scroll-behavior: smooth; }
-body { font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 .wrap { max-width: var(--col); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 .topbar { height: 4px; background: var(--red); }
 header { padding: 3.5rem 0 2.5rem; }

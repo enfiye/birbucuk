@@ -9,10 +9,10 @@ Politik ekoloji, çevre adaleti ve disiplinlerarası buluşmalar üzerine bir ko
 ## Programlar
 
 ### Solunum (2017–2019)
-Studio-X İstanbul'da gerçekleştirilen kapalı yuvarlak masa toplantıları. Dokuz buluşma: Su, Biyoçeşitlilik, Metabolizma, Sınırlar, İklim, Maden, Toplumsal Cinsiyet, Enerji, Toprak. Ayrıca Açık Radyo röportajı (Mart 2018).
+Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. On buluşma: Su, Biyoçeşitlilik, Metabolizma, Sınırlar, İklim, Maden, Toplumsal Cinsiyet, Enerji, Toprak + Açık Radyo röportajı (Mart 2018).
 
 ### Sindirim (2019)
-16. İstanbul Bienali "Yedinci Kıta" teması altında WORLBMON'da (MSGSÜ İstanbul Resim ve Heykel Müzesi) gerçekleştirilen kamusal buluşmalar. Beş nesne: Su, Benzin, Patates, Beton, İşlemci.
+16. İstanbul Bienali kapsamında WORLBMON'da (MSGSÜ İstanbul Resim ve Heykel Müzesi) gerçekleştirilen kamusal buluşmalar. Beş nesne: Su, Benzin, Patates, Beton, İşlemci.
 
 ---
 
@@ -20,33 +20,17 @@ Studio-X İstanbul'da gerçekleştirilen kapalı yuvarlak masa toplantıları. D
 
 ```
 site/
-  index.html          — Dil seçim sayfası (TR/EN/DE/FR/ES/IT/PT)
-  style.css           — Ortak stil dosyası
-  tr/                 — Türkçe (kaynak / otorite)
-  en/                 — İngilizce çeviriler
-  de/                 — Almanca çeviriler
-  fr/                 — Fransızca çeviriler
-  es/                 — İspanyolca çeviriler
-  it/                 — İtalyanca çeviriler
-  pt/                 — Portekizce çeviriler
-  [lang]/pdf/         — PDF'ler (105 toplam: 15 × 7 dil)
+  index.html          — Dil seçim sayfası (9 dil)
+  style.css
+  tr/ en/ de/ fr/ es/ it/ pt/ ar/ ku/
+    index.html        — Dil arşivi
+    *.html            — Oturum sayfaları (15 per language)
+    pdf/              — PDF'ler (15 per language)
 ```
 
-Her dilde 15 belge: 9 Solunum toplantısı + 5 Sindirim Kamusal toplantısı + 1 Radyo röportajı.
+135 belge: 15 oturum × 9 dil (TR, EN, DE, FR, ES, IT, PT, AR, KU).
 
-**Türkçe PDF'ler kaynak metinlerdir.** Tüm çeviriler Türkçe'den yapılmıştır.
-
----
-
-## PDF Üretimi
-
-PDF'ler `make_pdf.py` ile ReportLab Platypus kullanılarak üretilmiştir. İsviçre tipografisi, Lato ailesi fontlar, #CC0000 kırmızı aksanı.
-
-```python
-make_pdf(output_path, lang_code, program_label, topic, date_str, body_text, is_radio=False)
-```
-
-Üretim scriptleri: `/tmp/gen_[konu]_[dil].py`
+**Türkçe metinler kaynak/otorite.** Tüm çeviriler doğrudan Türkçe'den yapılmıştır.
 
 ---
 
