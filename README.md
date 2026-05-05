@@ -9,7 +9,7 @@ Politik ekoloji, çevre adaleti ve disiplinlerarası buluşmalar üzerine bir ko
 ## Programlar
 
 ### Solunum (2017–2019)
-Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. On buluşma: Su, Biyoçeşitlilik, Metabolizma, Sınırlar, İklim, Maden, Toplumsal Cinsiyet, Enerji, Toprak + Açık Radyo röportajı (Mart 2018).
+Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. Dokuz buluşma + bir radyo söyleşisi: Su, Biyoçeşitlilik, Metabolizma, Sınırlar, İklim, Maden, Açık Radyo Röportajı (Mart 2018), Toplumsal Cinsiyet, Enerji, Toprak.
 
 ### Sindirim (2019)
 16. İstanbul Bienali kapsamında WORLBMON'da (MSGSÜ İstanbul Resim ve Heykel Müzesi) gerçekleştirilen kamusal buluşmalar. Beş nesne: Su, Benzin, Patates, Beton, İşlemci.
@@ -20,17 +20,19 @@ Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. On buluşma: Su, Biy
 
 ```
 site/
-  index.html          — Dil seçim sayfası (9 dil)
+  index.html          — Dil seçim sayfası (10 dil, 5×2 ızgara, yakınlık sırası)
   style.css
-  tr/ en/ de/ fr/ es/ it/ pt/ ar/ ku/
+  tr/ ku/ ar/ fa/ it/ es/ pt/ fr/ de/ en/
     index.html        — Dil arşivi
     *.html            — Oturum sayfaları (15 per language)
     pdf/              — PDF'ler (15 per language)
 ```
 
-135 belge: 15 oturum × 9 dil (TR, EN, DE, FR, ES, IT, PT, AR, KU).
+150 oturum belgesi: 15 oturum × 10 dil (TR, KU, AR, FA, IT, ES, PT, FR, DE, EN).
 
 **Türkçe metinler kaynak/otorite.** Tüm çeviriler doğrudan Türkçe'den yapılmıştır.
+
+Diller anasayfada yakınlık halkalarına göre sıralanmıştır: Türkiye içi (TR/KU) → doğu/güney komşular (AR/FA) → Akdeniz (IT/ES) → Atlantik Avrupa (PT/FR) → Orta Avrupa + küresel (DE/EN).
 
 ---
 
