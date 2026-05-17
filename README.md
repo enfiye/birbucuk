@@ -20,7 +20,7 @@ Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. Dokuz buluşma + bir
 
 ```
 site/
-  index.html          — Dil seçim sayfası (10 dil, 5×2 ızgara, yakınlık sırası)
+  index.html          — Dil seçim sayfası (11 dil, 2-sütun ızgara, yakınlık sırası)
   style.css
   tr/ ku/ ar/ fa/ it/ es/ pt/ fr/ de/ en/
     index.html        — Dil arşivi
@@ -28,7 +28,7 @@ site/
     pdf/              — PDF'ler (15 per language)
 ```
 
-150 oturum belgesi: 15 oturum × 10 dil (TR, KU, AR, FA, IT, ES, PT, FR, DE, EN).
+165 oturum belgesi: 15 oturum × 11 dil (TR, KU, AR, FA, RU, IT, ES, PT, FR, DE, EN).
 
 **Türkçe metinler kaynak/otorite.** Tüm çeviriler doğrudan Türkçe'den yapılmıştır.
 
