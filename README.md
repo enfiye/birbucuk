@@ -2,7 +2,7 @@
 
 Politik ekoloji, çevre adaleti ve disiplinlerarası buluşmalar üzerine bir kolektif platform. ~2016'dan bu yana İstanbul'da sanatçıları, akademisyenleri ve aktivistleri bir araya getiriyor.
 
-**https://enfiye.github.io/birbucuk/**
+**https://birbucuk.net**
 
 ---
 
