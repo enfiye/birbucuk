@@ -20,19 +20,20 @@ Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. Dokuz buluşma + bir
 
 ```
 site/
-  index.html          — Dil seçim sayfası (11 dil, 2-sütun ızgara, yakınlık sırası)
+  CNAME               — birbucuk.net
+  index.html          — Dil seçim sayfası (14 dil, 7×2 ızgara, yakınlık sırası)
   style.css
-  tr/ ku/ ar/ fa/ it/ es/ pt/ fr/ de/ en/
+  tr/ ku/ hy/ ar/ fa/ hi/ ru/ el/ it/ es/ pt/ fr/ de/ en/
     index.html        — Dil arşivi
     *.html            — Oturum sayfaları (15 per language)
     pdf/              — PDF'ler (15 per language)
 ```
 
-165 oturum belgesi: 15 oturum × 11 dil (TR, KU, AR, FA, RU, IT, ES, PT, FR, DE, EN).
+210 oturum belgesi: 15 oturum × 14 dil (TR, KU, HY, AR, FA, HI, RU, EL, IT, ES, PT, FR, DE, EN).
 
 **Türkçe metinler kaynak/otorite.** Tüm çeviriler doğrudan Türkçe'den yapılmıştır.
 
-Diller anasayfada yakınlık halkalarına göre sıralanmıştır: Türkiye içi (TR/KU) → doğu/güney komşular (AR/FA) → Akdeniz (IT/ES) → Atlantik Avrupa (PT/FR) → Orta Avrupa + küresel (DE/EN).
+Diller anasayfada yakınlık halkalarına göre sıralanmıştır: Türkiye içi (TR/KU) → Kafkaslar ve doğu/güney komşular (HY/AR/FA) → güney Asya köprüsü (HI) → kuzey ve Akdeniz (RU/EL/IT/ES) → Atlantik Avrupa (PT/FR) → Orta Avrupa + küresel (DE/EN).
 
 ---
 
