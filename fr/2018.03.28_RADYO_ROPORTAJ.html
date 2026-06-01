@@ -24,7 +24,7 @@
     <ul>
       <li><a href="./">← Archives</a></li>
       <li class="lang-switch"><a href="../tr/2018.03.28_RADYO_ROPORTAJ.html">TR</a><a href="../ku/2018.03.28_RADYO_ROPORTAJ.html">KU</a><a href="../hy/2018.03.28_RADYO_ROPORTAJ.html">HY</a><a href="../ar/2018.03.28_RADYO_ROPORTAJ.html">AR</a><a href="../fa/2018.03.28_RADYO_ROPORTAJ.html">FA</a><a href="../hi/2018.03.28_RADYO_ROPORTAJ.html">HI</a><a href="../ru/2018.03.28_RADYO_ROPORTAJ.html">RU</a><a href="../el/2018.03.28_RADYO_ROPORTAJ.html">EL</a><a href="../it/2018.03.28_RADYO_ROPORTAJ.html">IT</a><a href="../es/2018.03.28_RADYO_ROPORTAJ.html">ES</a><a href="../pt/2018.03.28_RADYO_ROPORTAJ.html">PT</a><a href="../fr/2018.03.28_RADYO_ROPORTAJ.html" class="active">FR</a><a href="../de/2018.03.28_RADYO_ROPORTAJ.html">DE</a><a href="../en/2018.03.28_RADYO_ROPORTAJ.html">EN</a></li>
-      <li class="theme-switch"><button data-theme-btn="light" title="Light" aria-label="Light theme">◯</button><button data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">◐</button><button data-theme-btn="dark" title="Dark" aria-label="Dark theme">●</button></li>
+      <li class="theme-switch"><button type="button" data-theme-btn="light" title="Light" aria-label="Light theme">L</button><button type="button" data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">E</button><button type="button" data-theme-btn="dark" title="Dark" aria-label="Dark theme">D</button></li>
     </ul>
   </div>
 </nav>
@@ -125,11 +125,30 @@ ont été conservées ; la modification n&#x27;a été faite que pour la lisibil
 </footer>
 <script>
 (function(){
-  var btns=document.querySelectorAll('[data-theme-btn]');
-  function apply(t){if(t==='light'){document.documentElement.removeAttribute('data-theme');}else{document.documentElement.setAttribute('data-theme',t);}try{localStorage.setItem('birbucuk-theme',t);}catch(e){}btns.forEach(function(b){b.classList.toggle('active',b.dataset.themeBtn===t);});}
-  var cur='light';try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
-  apply(cur);
-  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.themeBtn);});});
+  function apply(t){
+    if(t==='light'){document.documentElement.removeAttribute('data-theme');}
+    else{document.documentElement.setAttribute('data-theme',t);}
+    try{localStorage.setItem('birbucuk-theme',t);}catch(e){}
+    var bs=document.querySelectorAll('[data-theme-btn]');
+    for(var i=0;i<bs.length;i++){bs[i].classList.toggle('active',bs[i].getAttribute('data-theme-btn')===t);}
+  }
+  var cur='light';
+  try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
+  function init(){
+    apply(cur);
+    document.addEventListener('click',function(ev){
+      var el=ev.target;
+      while(el && el!==document){
+        if(el.getAttribute && el.getAttribute('data-theme-btn')){
+          ev.preventDefault();
+          apply(el.getAttribute('data-theme-btn'));
+          return;
+        }
+        el=el.parentNode;
+      }
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>
 </body>

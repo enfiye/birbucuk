@@ -24,7 +24,7 @@
     <ul>
       <li><a href="./">← Архив</a></li>
       <li class="lang-switch"><a href="../tr/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">TR</a><a href="../ku/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">KU</a><a href="../hy/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">HY</a><a href="../ar/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">AR</a><a href="../fa/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">FA</a><a href="../hi/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">HI</a><a href="../ru/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html" class="active">RU</a><a href="../el/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">EL</a><a href="../it/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">IT</a><a href="../es/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">ES</a><a href="../pt/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">PT</a><a href="../fr/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">FR</a><a href="../de/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">DE</a><a href="../en/2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI.html">EN</a></li>
-      <li class="theme-switch"><button data-theme-btn="light" title="Light" aria-label="Light theme">◯</button><button data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">◐</button><button data-theme-btn="dark" title="Dark" aria-label="Dark theme">●</button></li>
+      <li class="theme-switch"><button type="button" data-theme-btn="light" title="Light" aria-label="Light theme">L</button><button type="button" data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">E</button><button type="button" data-theme-btn="dark" title="Dark" aria-label="Dark theme">D</button></li>
     </ul>
   </div>
 </nav>
@@ -102,11 +102,30 @@
 </footer>
 <script>
 (function(){
-  var btns=document.querySelectorAll('[data-theme-btn]');
-  function apply(t){if(t==='light'){document.documentElement.removeAttribute('data-theme');}else{document.documentElement.setAttribute('data-theme',t);}try{localStorage.setItem('birbucuk-theme',t);}catch(e){}btns.forEach(function(b){b.classList.toggle('active',b.dataset.themeBtn===t);});}
-  var cur='light';try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
-  apply(cur);
-  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.themeBtn);});});
+  function apply(t){
+    if(t==='light'){document.documentElement.removeAttribute('data-theme');}
+    else{document.documentElement.setAttribute('data-theme',t);}
+    try{localStorage.setItem('birbucuk-theme',t);}catch(e){}
+    var bs=document.querySelectorAll('[data-theme-btn]');
+    for(var i=0;i<bs.length;i++){bs[i].classList.toggle('active',bs[i].getAttribute('data-theme-btn')===t);}
+  }
+  var cur='light';
+  try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
+  function init(){
+    apply(cur);
+    document.addEventListener('click',function(ev){
+      var el=ev.target;
+      while(el && el!==document){
+        if(el.getAttribute && el.getAttribute('data-theme-btn')){
+          ev.preventDefault();
+          apply(el.getAttribute('data-theme-btn'));
+          return;
+        }
+        el=el.parentNode;
+      }
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>
 </body>
