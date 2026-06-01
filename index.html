@@ -9,24 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #111; display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
-  .topbar { height: 4px; background: #CC0000; }
-  main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4rem 2rem; }
+  :root { --bg:#fff; --text:#111; --mute:#777; --rule:#ddd; --red:#CC0000; --hover:#fafafa; }
+  :root[data-theme="dark"] { --bg:#12141a; --text:#ebe7df; --mute:#888c95; --rule:#262b34; --red:#ff5050; --hover:#181c25; }
+  :root[data-theme="dirt"] { --bg:#1b1812; --text:#ebe0c8; --mute:#8a7d62; --rule:#2e271e; --red:#df5b30; --hover:#221d15; }
+  html { background: var(--bg); }
+  body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; transition: background-color 0.18s ease, color 0.18s ease; }
+  .topbar { height: 4px; background: var(--red); }
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4rem 2rem; position: relative; }
   h1 { font-size: 5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 3rem; }
-  h1 span { color: #CC0000; }
-  .langs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #111; border: 1.5px solid #111; width: 100%; max-width: 480px; }
-  .langs a { background: #fff; padding: 2rem; text-decoration: none; text-align: center; transition: background 0.12s; }
-  .langs a:hover { background: #fafafa; }
-  .langs a .code { font-size: 1.4rem; font-weight: 900; color: #111; letter-spacing: 0.05em; display: block; }
-  .langs a .name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #777; margin-top: 0.25rem; display: block; }
-  .langs a:hover .code { color: #CC0000; }
-  footer { border-top: 1px solid #ddd; padding: 1rem 2rem; text-align: center; font-size: 0.72rem; color: #777; font-weight: 300; }
-  @media (max-width: 480px) { h1 { font-size: 3rem; } }
+  h1 span { color: var(--red); }
+  .langs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--text); border: 1.5px solid var(--text); width: 100%; max-width: 480px; }
+  .langs a { background: var(--bg); padding: 2rem; text-decoration: none; text-align: center; transition: background 0.12s; }
+  .langs a:hover { background: var(--hover); }
+  .langs a .code { font-size: 1.4rem; font-weight: 900; color: var(--text); letter-spacing: 0.05em; display: block; }
+  .langs a .name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mute); margin-top: 0.25rem; display: block; }
+  .langs a:hover .code { color: var(--red); }
+  footer { border-top: 1px solid var(--rule); padding: 1rem 2rem; text-align: center; font-size: 0.72rem; color: var(--mute); font-weight: 300; transition: border-color 0.18s ease, color 0.18s ease; }
+  .theme-switch { position: absolute; top: 1.5rem; right: 1.5rem; display: flex; gap: 0.35rem; }
+  .theme-switch button { background: transparent; border: 1px solid var(--rule); color: var(--mute); font: inherit; font-size: 0.95rem; line-height: 1; padding: 0.25rem 0.5rem; cursor: pointer; transition: color 0.12s, border-color 0.12s; }
+  .theme-switch button:hover, .theme-switch button.active { color: var(--red); border-color: var(--red); }
+  @media (max-width: 480px) { h1 { font-size: 3rem; } .theme-switch { top: 1rem; right: 1rem; } }
 </style>
+<script>(function(){try{var t=localStorage.getItem('birbucuk-theme');if(t==='dark'||t==='dirt')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 <div class="topbar"></div>
 <main>
+  <div class="theme-switch"><button data-theme-btn="light" title="Light" aria-label="Light theme">◯</button><button data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">◐</button><button data-theme-btn="dark" title="Dark" aria-label="Dark theme">●</button></div>
   <h1><span>bir</span>buçuk</h1>
   <div class="langs">
     <a href="tr/"><span class="code">TR</span><span class="name">Türkçe</span></a>
@@ -45,6 +54,15 @@
     <a href="en/"><span class="code">EN</span><span class="name">English</span></a>
   </div>
 </main>
-<footer><span style="color:#CC0000;font-weight:900;">bir</span>buçuk · İstanbul · ~2016</footer>
+<footer><span style="color:var(--red);font-weight:900;">bir</span>buçuk · İstanbul · ~2016</footer>
+<script>
+(function(){
+  var btns=document.querySelectorAll('[data-theme-btn]');
+  function apply(t){if(t==='light'){document.documentElement.removeAttribute('data-theme');}else{document.documentElement.setAttribute('data-theme',t);}try{localStorage.setItem('birbucuk-theme',t);}catch(e){}btns.forEach(function(b){b.classList.toggle('active',b.dataset.themeBtn===t);});}
+  var cur='light';try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
+  apply(cur);
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.themeBtn);});});
+})();
+</script>
 </body>
 </html>

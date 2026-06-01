@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 
+<script>(function(){try{var t=localStorage.getItem('birbucuk-theme');if(t==='dark'||t==='dirt')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body class="session-page">
 <div class="topbar"></div>
@@ -23,6 +24,7 @@
     <ul>
       <li><a href="./">← Archives</a></li>
       <li class="lang-switch"><a href="../tr/2018.03.28_RADYO_ROPORTAJ.html">TR</a><a href="../ku/2018.03.28_RADYO_ROPORTAJ.html">KU</a><a href="../hy/2018.03.28_RADYO_ROPORTAJ.html">HY</a><a href="../ar/2018.03.28_RADYO_ROPORTAJ.html">AR</a><a href="../fa/2018.03.28_RADYO_ROPORTAJ.html">FA</a><a href="../hi/2018.03.28_RADYO_ROPORTAJ.html">HI</a><a href="../ru/2018.03.28_RADYO_ROPORTAJ.html">RU</a><a href="../el/2018.03.28_RADYO_ROPORTAJ.html">EL</a><a href="../it/2018.03.28_RADYO_ROPORTAJ.html">IT</a><a href="../es/2018.03.28_RADYO_ROPORTAJ.html">ES</a><a href="../pt/2018.03.28_RADYO_ROPORTAJ.html">PT</a><a href="../fr/2018.03.28_RADYO_ROPORTAJ.html" class="active">FR</a><a href="../de/2018.03.28_RADYO_ROPORTAJ.html">DE</a><a href="../en/2018.03.28_RADYO_ROPORTAJ.html">EN</a></li>
+      <li class="theme-switch"><button data-theme-btn="light" title="Light" aria-label="Light theme">◯</button><button data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">◐</button><button data-theme-btn="dark" title="Dark" aria-label="Dark theme">●</button></li>
     </ul>
   </div>
 </nav>
@@ -121,5 +123,14 @@ ont été conservées ; la modification n&#x27;a été faite que pour la lisibil
     <div class="fr">Programme Solunum (Respiration) I — 2017–2019</div>
   </div>
 </footer>
+<script>
+(function(){
+  var btns=document.querySelectorAll('[data-theme-btn]');
+  function apply(t){if(t==='light'){document.documentElement.removeAttribute('data-theme');}else{document.documentElement.setAttribute('data-theme',t);}try{localStorage.setItem('birbucuk-theme',t);}catch(e){}btns.forEach(function(b){b.classList.toggle('active',b.dataset.themeBtn===t);});}
+  var cur='light';try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
+  apply(cur);
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.themeBtn);});});
+})();
+</script>
 </body>
 </html>

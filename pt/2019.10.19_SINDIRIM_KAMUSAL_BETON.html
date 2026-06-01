@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 
+<script>(function(){try{var t=localStorage.getItem('birbucuk-theme');if(t==='dark'||t==='dirt')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body class="session-page">
 <div class="topbar"></div>
@@ -23,6 +24,7 @@
     <ul>
       <li><a href="./">← Arquivo</a></li>
       <li class="lang-switch"><a href="../tr/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">TR</a><a href="../ku/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">KU</a><a href="../hy/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">HY</a><a href="../ar/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">AR</a><a href="../fa/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">FA</a><a href="../hi/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">HI</a><a href="../ru/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">RU</a><a href="../el/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">EL</a><a href="../it/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">IT</a><a href="../es/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">ES</a><a href="../pt/2019.10.19_SINDIRIM_KAMUSAL_BETON.html" class="active">PT</a><a href="../fr/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">FR</a><a href="../de/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">DE</a><a href="../en/2019.10.19_SINDIRIM_KAMUSAL_BETON.html">EN</a></li>
+      <li class="theme-switch"><button data-theme-btn="light" title="Light" aria-label="Light theme">◯</button><button data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">◐</button><button data-theme-btn="dark" title="Dark" aria-label="Dark theme">●</button></li>
     </ul>
   </div>
 </nav>
@@ -104,5 +106,14 @@
     <div class="fr">Programa Sindirim (Digestão) II — 2019</div>
   </div>
 </footer>
+<script>
+(function(){
+  var btns=document.querySelectorAll('[data-theme-btn]');
+  function apply(t){if(t==='light'){document.documentElement.removeAttribute('data-theme');}else{document.documentElement.setAttribute('data-theme',t);}try{localStorage.setItem('birbucuk-theme',t);}catch(e){}btns.forEach(function(b){b.classList.toggle('active',b.dataset.themeBtn===t);});}
+  var cur='light';try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
+  apply(cur);
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.themeBtn);});});
+})();
+</script>
 </body>
 </html>
