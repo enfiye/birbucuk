@@ -5,6 +5,9 @@
     <loc>https://birbucuk.net/</loc>
   </url>
   <url>
+    <loc>https://birbucuk.net/esik/</loc>
+  </url>
+  <url>
     <loc>https://birbucuk.net/tr/</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://birbucuk.net/tr/"/>
     <xhtml:link rel="alternate" hreflang="ku" href="https://birbucuk.net/ku/"/>
