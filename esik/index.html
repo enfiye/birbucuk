@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>eşik — birbuçuk</title>
-<meta name="description" content="Eşik / Threshold — birbuçuk arşivinin deneysel görsel arayüzü: 15 oturum, 14 dil, 210 metin, 1,5°C çizgisinin karşısında. An experimental visual interface to the birbuçuk archive, set against the 1.5°C line.">
+<meta name="description" content="Eşik / Threshold — birbuçuk arşivi atmosferin kaydı üzerinde: on beş oturum, Mauna Loa CO₂ eğrisinde işaretli. The birbuçuk archive on the atmosphere's record: fifteen sessions marked on the Mauna Loa CO₂ curve.">
 <link rel="canonical" href="https://birbucuk.net/esik/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="birbuçuk">
 <meta property="og:title" content="eşik — birbuçuk">
-<meta property="og:description" content="Eşik / Threshold — birbuçuk arşivinin deneysel görsel arayüzü: 15 oturum, 14 dil, 210 metin, 1,5°C çizgisinin karşısında.">
+<meta property="og:description" content="Eşik / Threshold — birbuçuk arşivi atmosferin kaydı üzerinde: on beş oturum, Mauna Loa CO₂ eğrisinde işaretli.">
 <meta property="og:url" content="https://birbucuk.net/esik/">
 <meta property="og:locale" content="tr">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -20,205 +20,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --red:#CC0000; --black:#111; --dark:#333; --grey:#777; --rule:#ddd; --white:#fff; --soft:rgba(204,0,0,.07); --softer:rgba(204,0,0,.035); --gutter:2.5rem; --col:1200px; }
-:root[data-theme="dark"] { --red:#ff5050; --black:#ebe7df; --dark:#c4c0b6; --grey:#888c95; --rule:#262b34; --white:#12141a; --soft:rgba(255,80,80,.12); --softer:rgba(255,80,80,.06); }
-:root[data-theme="dirt"] { --red:#df5b30; --black:#ebe0c8; --dark:#c4b794; --grey:#8a7d62; --rule:#2e271e; --white:#1b1812; --soft:rgba(223,91,48,.13); --softer:rgba(223,91,48,.065); }
-html { font-size:16px; scroll-behavior:smooth; background:var(--white); }
-body { font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--black); background:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased; transition:background-color .18s ease, color .18s ease; }
-.wrap { max-width:var(--col); margin:0 auto; padding-left:var(--gutter); padding-right:var(--gutter); }
+:root { --red:#CC0000; --black:#111; --dark:#333; --grey:#777; --rule:#ddd; --white:#fff; --gutter:2.5rem; --col:1200px; }
+:root[data-theme="dark"] { --red:#ff5050; --black:#ebe7df; --dark:#c4c0b6; --grey:#888c95; --rule:#262b34; --white:#12141a; }
+:root[data-theme="dirt"] { --red:#df5b30; --black:#ebe0c8; --dark:#c4b794; --grey:#8a7d62; --rule:#2e271e; --white:#1b1812; }
+html { font-size:16px; background:var(--white); }
+body { font-family:'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif; color:var(--black); background:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased; transition:background-color .18s ease, color .18s ease; display:flex; flex-direction:column; min-height:100vh; }
+.wrap { max-width:var(--col); margin:0 auto; padding-left:var(--gutter); padding-right:var(--gutter); width:100%; }
 .topbar { height:4px; background:var(--red); }
 a { color:inherit; }
-
-/* header */
-header.bar { border-bottom:1px solid var(--rule); position:sticky; top:0; background:var(--white); z-index:100; transition:background-color .18s ease, border-color .18s ease; }
+header.bar { border-bottom:1px solid var(--rule); }
 header.bar .wrap { display:flex; align-items:center; gap:2rem; padding-top:.7rem; padding-bottom:.7rem; }
 .brand { text-decoration:none; font-size:.8rem; font-weight:900; letter-spacing:-.02em; }
 .brand span { color:var(--red); }
 .brand .back { font-weight:300; color:var(--grey); margin-right:.5rem; font-size:.72rem; }
-header.bar nav { margin-left:auto; display:flex; gap:1.6rem; align-items:center; }
-header.bar nav a { text-decoration:none; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grey); transition:color .15s; }
-header.bar nav a:hover { color:var(--red); }
-.theme-switch { display:flex; gap:.35rem; margin-left:.5rem; }
+.theme-switch { margin-left:auto; display:flex; gap:.35rem; }
 .theme-switch button { background:transparent; border:1px solid var(--rule); color:var(--grey); font:inherit; font-size:.85rem; line-height:1; padding:.18rem .42rem; cursor:pointer; transition:color .12s, border-color .12s; }
 .theme-switch button:hover, .theme-switch button.active { color:var(--red); border-color:var(--red); }
-
-/* hero */
-.hero { padding:5.5rem 0 4.5rem; border-bottom:1px solid var(--rule); }
-.hero-num { font-size:clamp(9rem, 27vw, 20rem); font-weight:900; line-height:.85; letter-spacing:-.06em; color:var(--red); display:inline-block; animation:breathe 6.5s ease-in-out infinite; transform-origin:left bottom; font-variant-numeric:tabular-nums; }
-@keyframes breathe { 0%,100% { transform:scale(1); } 50% { transform:scale(1.03); } }
-.hero-sub { display:flex; align-items:baseline; gap:1.25rem; margin-top:1.5rem; flex-wrap:wrap; }
-.hero-sub h1 { font-size:2rem; font-weight:900; letter-spacing:-.02em; }
-.hero-sub .en { font-size:.95rem; font-weight:300; color:var(--grey); font-style:italic; }
-.manifesto { margin-top:2rem; max-width:640px; }
-.manifesto p { font-size:1rem; line-height:1.75; color:var(--dark); margin-bottom:.75rem; }
-.manifesto p.en { font-size:.85rem; font-weight:300; font-style:italic; color:var(--grey); }
-.stats { display:flex; gap:3rem; margin-top:3.25rem; flex-wrap:wrap; }
-.stat .n { font-size:2.1rem; font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
-.stat .l { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grey); margin-top:.1rem; }
-.co2strip { margin-top:3.25rem; max-width:680px; }
-.co2strip .row { display:flex; align-items:flex-end; gap:1rem; }
-.co2strip .v { font-size:1.15rem; font-weight:900; font-variant-numeric:tabular-nums; white-space:nowrap; }
-.co2strip .bar { flex:1; position:relative; height:2px; background:var(--rule); margin-bottom:.55rem; }
-.co2strip .bar i { position:absolute; left:0; top:0; height:100%; width:0; background:var(--red); transition:width 2.4s cubic-bezier(.25,.1,.25,1); }
-.co2strip .delta { text-align:center; font-size:.72rem; font-weight:700; color:var(--red); margin-bottom:.35rem; letter-spacing:.06em; }
-.co2strip .cap { display:flex; justify-content:space-between; font-size:.68rem; color:var(--grey); font-weight:300; margin-top:.4rem; gap:1rem; }
-
-/* sections */
-section { padding:4rem 0; }
-section + section { border-top:1px solid var(--rule); }
-.sec-head { display:grid; grid-template-columns:160px 1fr; gap:2rem; margin-bottom:2.25rem; }
-.sec-label { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grey); padding-top:.35rem; }
-.sec-label .accent { display:block; margin-top:.15rem; color:var(--red); font-weight:900; }
-.sec-title { font-size:1.8rem; font-weight:900; letter-spacing:-.02em; line-height:1.15; }
-.sec-title em { font-style:normal; color:var(--red); }
-.sec-desc { font-size:.88rem; font-weight:300; color:var(--dark); margin-top:.5rem; max-width:640px; line-height:1.7; }
-.sec-desc .en { font-style:italic; color:var(--grey); }
-
+main { flex:1; padding:3.5rem 0 3rem; }
+.page-head { margin-bottom:2.5rem; }
+.page-head h1 { font-size:2.2rem; font-weight:900; letter-spacing:-.02em; line-height:1; display:inline; }
+.page-head .en { font-size:.95rem; font-weight:300; font-style:italic; color:var(--grey); margin-left:.75rem; }
+.page-head p { margin-top:.75rem; font-size:.95rem; font-weight:300; color:var(--dark); max-width:560px; }
+.page-head p .en2 { font-style:italic; color:var(--grey); }
 .figwrap { overflow-x:auto; }
-.fig { min-width:720px; }
+.fig { min-width:760px; }
 .fig svg { display:block; width:100%; height:auto; }
-.legend { display:flex; gap:1.75rem; flex-wrap:wrap; margin-top:1rem; font-size:.68rem; color:var(--grey); font-weight:300; align-items:center; }
+.legend { display:flex; gap:1.75rem; flex-wrap:wrap; margin-top:1.25rem; font-size:.68rem; color:var(--grey); font-weight:300; align-items:center; }
 .legend b { font-weight:700; color:var(--dark); }
 .legend svg { vertical-align:-2px; margin-right:.35rem; }
 .fig-cap { margin-top:1.25rem; font-size:.78rem; color:var(--grey); font-weight:300; max-width:680px; line-height:1.7; }
 .fig-cap strong { color:var(--red); font-weight:700; }
-
-/* chart */
-.axis text, .chart-label { font-family:'Roboto',sans-serif; }
 .tt { position:fixed; pointer-events:none; background:var(--black); color:var(--white); font-size:.7rem; font-weight:400; line-height:1.5; padding:.45rem .65rem; z-index:200; opacity:0; transition:opacity .1s; max-width:240px; }
 .tt b { color:var(--red); font-weight:700; }
-:root[data-theme="dark"] .tt, :root[data-theme="dirt"] .tt { background:var(--black); color:var(--white); }
-
-/* organism */
-.node { cursor:pointer; }
-.node circle.c { fill:var(--white); stroke:var(--black); stroke-width:1.5; transition:stroke .15s, fill .15s; transform-box:fill-box; transform-origin:center; animation:npulse 6.5s ease-in-out infinite; }
-.node:hover circle.c, .node.active circle.c { stroke:var(--red); fill:var(--soft); }
-.node.active circle.c { stroke-width:2.5; }
-.node text { pointer-events:none; }
-.node .nl { font-size:11px; font-weight:900; letter-spacing:.04em; fill:var(--black); }
-.node .nd { font-size:8.5px; font-weight:400; fill:var(--grey); }
-.node:hover .nl, .node.active .nl { fill:var(--red); }
-@keyframes npulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.06); } }
-.arc { fill:none; stroke:var(--red); stroke-width:1; opacity:.4; }
-.lobe-label { font-size:10px; font-weight:700; letter-spacing:.14em; fill:var(--grey); text-transform:uppercase; }
-.ghost { stroke:var(--grey); stroke-dasharray:4 5; fill:none; opacity:.6; }
-.ghost-label { font-size:10px; font-weight:700; letter-spacing:.14em; fill:var(--grey); }
-
-/* detail panel */
-.panel { border:1.5px solid var(--black); margin-top:2rem; padding:1.75rem 2rem; display:grid; grid-template-columns:220px 1fr 260px; gap:2rem; min-height:180px; transition:border-color .18s ease; }
-.panel.empty { border-color:var(--rule); color:var(--grey); display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:300; text-align:center; }
-.p-topic { font-size:1.7rem; font-weight:900; letter-spacing:-.02em; line-height:1.1; }
-.p-prog { font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--red); margin-bottom:.6rem; }
-.p-date { font-size:.8rem; color:var(--grey); margin-top:.5rem; }
-.p-ctx { font-size:.92rem; line-height:1.7; color:var(--dark); }
-.p-ctx .en { display:block; margin-top:.75rem; font-size:.8rem; font-weight:300; font-style:italic; color:var(--grey); }
-.p-stats { display:grid; grid-template-columns:1fr 1fr; gap:.6rem 1rem; margin-bottom:1.1rem; }
-.p-stat .n { font-size:1.05rem; font-weight:900; font-variant-numeric:tabular-nums; }
-.p-stat .l { font-size:.6rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--grey); }
-.p-langs { display:flex; flex-wrap:wrap; gap:.3rem; }
-.p-langs a { font-size:.62rem; font-weight:700; padding:.22rem .45rem; border:1px solid var(--rule); color:var(--grey); text-decoration:none; letter-spacing:.05em; transition:all .12s; }
-.p-langs a:hover { border-color:var(--red); color:var(--red); }
-
-/* weave */
-.weave { display:grid; gap:1px; background:var(--rule); border:1.5px solid var(--black); width:max-content; }
-.weave > * { background:var(--white); transition:background-color .12s; }
-.w-corner { }
-.w-top { writing-mode:vertical-rl; transform:rotate(180deg); font-size:.6rem; font-weight:700; letter-spacing:.08em; color:var(--grey); padding:.6rem .35rem .4rem; text-align:right; display:flex; align-items:center; }
-.w-top i { font-style:normal; color:var(--red); font-weight:900; }
-.w-lang { font-size:.66rem; font-weight:900; color:var(--black); padding:0 .7rem; display:flex; align-items:center; letter-spacing:.06em; }
-.w-cell { width:34px; height:34px; display:block; position:relative; }
-.w-cell::after { content:''; position:absolute; inset:11px; background:var(--rule); transition:background-color .12s, inset .12s; }
-.w-cell:hover { background:var(--soft); }
-.w-cell:hover::after { background:var(--red); inset:8px; }
-.w-cell.hl { background:var(--softer); }
-.w-cell.hl::after { background:var(--red); opacity:.55; }
-.w-lang.hl, .w-top.hl, .w-lang.hl { color:var(--red); }
-.w-top.hl { color:var(--red); }
-.weave-note { margin-top:1.25rem; font-size:.78rem; color:var(--grey); font-weight:300; max-width:640px; line-height:1.7; }
-
-/* coda */
-.coda { border-top:1.5px solid var(--black); padding:4rem 0; }
-.coda .wrap { display:grid; grid-template-columns:160px 1fr; gap:2rem; align-items:start; }
-.coda-text p { font-size:1.05rem; line-height:1.8; color:var(--dark); max-width:640px; margin-bottom:.85rem; }
-.coda-text p.en { font-size:.85rem; font-weight:300; font-style:italic; color:var(--grey); }
-.coda-text p strong { color:var(--red); font-weight:900; }
-
 footer { border-top:1.5px solid var(--black); padding:1.3rem 0; }
 footer .wrap { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
 footer .fl { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; }
 footer .fl span { color:var(--red); }
 footer .fr { font-size:.68rem; color:var(--grey); font-weight:300; }
-
-/* hero crossing note */
-.hero-crossed { margin-top:1rem; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--red); }
-
-/* warming stripes */
-.stripes-bleed { margin-top:4rem; }
-.stripes-bleed svg { display:block; width:100%; height:72px; shape-rendering:crispEdges; }
-.stripes-cap { display:flex; justify-content:space-between; gap:1rem; font-size:.68rem; color:var(--grey); font-weight:300; padding-top:.5rem; }
-.stripes-cap b { font-weight:700; color:var(--dark); }
-
-/* the crossing */
-.xing-track { height:340vh; }
-.xing-view { position:sticky; top:0; height:100vh; overflow:hidden; background:var(--white); transition:background-color 1.2s ease; }
-.xing-view.crossed { background:var(--softer); }
-.xing-line { position:absolute; left:0; right:0; top:50%; height:2px; background:var(--red); z-index:2; }
-.xing-line span { position:absolute; right:var(--gutter); bottom:.5rem; font-size:.85rem; font-weight:900; color:var(--red); }
-.xing-num { position:absolute; left:var(--gutter); top:50%; font-size:clamp(4.5rem,11vw,8.5rem); font-weight:900; letter-spacing:-.05em; line-height:1; color:var(--black); font-variant-numeric:tabular-nums; transform:translateY(28vh); will-change:transform; z-index:3; transition:color .4s; }
-.xing-num.hot { color:var(--red); }
-.xing-num small { display:block; font-size:.8rem; font-weight:700; letter-spacing:.12em; color:var(--grey); margin-bottom:.4rem; font-variant-numeric:tabular-nums; }
-.xing-zone { position:absolute; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--grey); max-width:260px; line-height:1.8; }
-.xing-below { left:var(--gutter); bottom:2rem; }
-.xing-above { right:var(--gutter); top:2rem; text-align:right; opacity:0; transition:opacity 1s ease; }
-.xing-view.crossed .xing-above { opacity:1; color:var(--red); }
-.xing-quote { position:absolute; right:var(--gutter); bottom:2rem; width:min(420px,60vw); text-align:right; opacity:0; transition:opacity .6s ease; z-index:4; }
-.xing-quote.show { opacity:1; }
-.xing-quote .q-tr { font-size:1.02rem; font-weight:300; font-style:italic; line-height:1.7; color:var(--dark); }
-.xing-quote .q-en { font-size:.75rem; font-weight:300; font-style:italic; color:var(--grey); margin-top:.5rem; line-height:1.6; }
-.xing-quote .q-src { font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--red); margin-top:.6rem; }
-/* static fallback when JS is off */
-html:not(.js) .xing-track { height:auto; }
-html:not(.js) .xing-view { position:relative; height:auto; min-height:60vh; padding:6rem 0; }
-html:not(.js) .xing-num { position:relative; transform:none; top:auto; margin:2rem var(--gutter); }
-html:not(.js) .xing-quote { position:relative; right:auto; bottom:auto; margin:2rem var(--gutter) 0 auto; opacity:1; }
-html:not(.js) .xing-above { opacity:1; }
-
-/* you marker pulse */
-.you-ring { animation:youpulse 2.4s ease-out infinite; transform-box:fill-box; transform-origin:center; }
-@keyframes youpulse { 0% { opacity:.8; transform:scale(.45); } 70% { opacity:0; transform:scale(2); } 100% { opacity:0; transform:scale(2); } }
-
-/* co2 ticker */
-.ticker { margin-bottom:2.5rem; }
-.ticker .tk-n { font-size:2.2rem; font-weight:900; letter-spacing:-.02em; color:var(--red); font-variant-numeric:tabular-nums; }
-.ticker .tk-l { display:block; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grey); margin-top:.3rem; max-width:420px; line-height:1.8; }
-.ticker .tk-src { font-size:.66rem; font-weight:300; color:var(--grey); margin-top:.4rem; }
-
-/* reveal — hidden only when JS is running (html.js), so no-JS renders everything */
-html.js .rv { opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease; }
-html.js .rv.in { opacity:1; transform:none; }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-num, .node circle.c, .you-ring { animation:none; }
-  .rv { opacity:1; transform:none; transition:none; }
-  html { scroll-behavior:auto; }
-  .xing-track { height:auto; }
-  .xing-view { position:relative; height:auto; min-height:60vh; padding:6rem 0; }
-  .xing-num { position:relative; transform:none !important; top:auto; margin:2rem var(--gutter); }
-  .xing-quote { position:relative; right:auto; bottom:auto; margin:2rem var(--gutter) 0 auto; opacity:1; }
-  .xing-above { opacity:1; }
-}
-@media (max-width:600px) {
-  .xing-quote { width:min(420px,78vw); }
-  .xing-num { transform:translateY(24vh); }
-}
-@media (max-width:900px) {
-  .sec-head, .coda .wrap { grid-template-columns:1fr; gap:.75rem; }
-  .panel { grid-template-columns:1fr; gap:1.25rem; }
-  .stats { gap:1.75rem; }
-  header.bar nav { gap:1rem; }
-  header.bar nav a .opt { display:none; }
-}
-@media (max-width:600px) { :root { --gutter:1.25rem; } .hero { padding:3.5rem 0 3rem; } .sec-title { font-size:1.4rem; } header.bar .wrap { flex-wrap:wrap; row-gap:.3rem; } header.bar nav { gap:1.1rem; } }
+@media (max-width:600px) { :root { --gutter:1.25rem; } main { padding:2rem 0; } }
 </style>
 <script>(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('birbucuk-theme');if(t==='dark'||t==='dirt')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -228,150 +67,26 @@ html.js .rv.in { opacity:1; transform:none; }
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="../"><span class="back">←</span><span>bir</span>buçuk</a>
-    <nav aria-label="Bölümler">
-      <a href="#cizgi">Çizgi</a>
-      <a href="#gecis">Geçiş</a>
-      <a href="#organizma">Organizma</a>
-      <a href="#dokuma">Dokuma</a>
-      <div class="theme-switch"><button type="button" data-theme-btn="light" title="Light" aria-label="Light theme">L</button><button type="button" data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">E</button><button type="button" data-theme-btn="dark" title="Dark" aria-label="Dark theme">D</button></div>
-    </nav>
+    <div class="theme-switch"><button type="button" data-theme-btn="light" title="Light" aria-label="Light theme">L</button><button type="button" data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">E</button><button type="button" data-theme-btn="dark" title="Dark" aria-label="Dark theme">D</button></div>
   </div>
 </header>
 
-<div class="hero">
+<main>
   <div class="wrap">
-    <div class="hero-num" aria-hidden="true">1,5</div>
-    <div class="hero-crossed">eşik 2024'te aşıldı / the threshold was crossed in 2024</div>
-    <div class="hero-sub">
-      <h1>eşik</h1>
-      <span class="en">threshold — an experimental interface to the archive</span>
+    <div class="page-head">
+      <h1>eşik</h1><span class="en">threshold</span>
+      <p>On beş oturum, atmosferin kaydı üzerinde. <span class="en2">Fifteen sessions on the atmosphere's record.</span></p>
     </div>
-    <div class="manifesto">
-      <p>Meraklıyız ve kaygılıyız. Yeryüzü sistemlerini talan eden makineye karşı kaybediyoruz; yine de bir araya gelmeye devam ediyoruz. Bu sayfa, arşivi adını aldığı sayının karşısına koyuyor.</p>
-      <p class="en">We are curious and concerned. We are losing against the machine that ransacks earth systems; still, we keep gathering. This page sets the archive against the number it is named for.</p>
-    </div>
-    <div class="stats" id="stats">
-      <div class="stat"><div class="n" data-count="15">0</div><div class="l">oturum / sessions</div></div>
-      <div class="stat"><div class="n" data-count="14">0</div><div class="l">dil / languages</div></div>
-      <div class="stat"><div class="n" data-count="210">0</div><div class="l">metin / texts</div></div>
-      <div class="stat"><div class="n" data-count="498849" data-fmt="k">0</div><div class="l">kelime / words</div></div>
-    </div>
-    <div class="co2strip" id="co2strip">
-      <div class="delta">+22,36 ppm CO₂</div>
-      <div class="row">
-        <div class="v">409,08</div>
-        <div class="bar"><i id="co2bar"></i></div>
-        <div class="v" style="color:var(--red)">431,44</div>
-      </div>
-      <div class="cap">
-        <span>Haziran 2017 — ilk soluk / the first breath</span>
-        <span>Haziran 2026 — bugün / today</span>
-      </div>
-    </div>
+    <div class="figwrap"><div class="fig" id="chart" role="img" aria-label="Mauna Loa aylık CO₂ eğrisi 2015–2026; birbuçuk oturumları kendi aylarında işaretli"></div></div>
+    <div class="legend" id="legend"></div>
+    <p class="fig-cap"><strong>Kolektifin ilk toplantısından bu yana atmosferdeki CO₂ 22,36 ppm arttı.</strong> Eğrinin dişleri kuzey yarımkürenin mevsimsel soluğudur; yükseliş bizimdir. <span style="font-style:italic">Since the collective's first meeting, CO₂ has risen by 22.36 ppm. The teeth of the curve are the seasonal breath of the northern hemisphere; the rise is ours.</span><br>Veri / data: NOAA GML, Mauna Loa aylık ortalama · Temmuz 2026.</p>
   </div>
-  <div class="stripes-bleed">
-    <div id="stripes" role="img" aria-label="1940–2025 küresel sıcaklık şeritleri; her şerit bir yılın sapması, koyulaştıkça ısınıyor"></div>
-    <div class="wrap stripes-cap">
-      <span><b>1940</b></span>
-      <span>her şerit bir yıl — kızıllık, o yılın sapması / each stripe is a year; its redness, that year's anomaly · ERA5</span>
-      <span><b>2025</b></span>
-    </div>
-  </div>
-</div>
-
-<section id="cizgi">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="sec-label">01<span class="accent">Çizgi / The Line</span></div>
-      <div>
-        <h2 class="sec-title">Arşiv, adını aldığı sayının <em>altında</em> yaşadı</h2>
-        <p class="sec-desc">On beş oturumun her biri, ayının küresel sıcaklık sapmasıyla çizgiye yerleştirildi. Kolektif konuşurken çizgi yükseldi. <span class="en">Each of the fifteen sessions is placed on the line at its month's global temperature anomaly. While the collective spoke, the line rose.</span></p>
-      </div>
-    </div>
-    <div class="figwrap rv"><div class="fig" id="chart" role="img" aria-label="1850–1900 tabanına göre küresel sıcaklık sapması, 2015–2025; 1,5 derece eşiği ve birbuçuk oturumları"></div></div>
-    <div class="legend" id="chart-legend"></div>
-    <p class="fig-cap rv"><strong>2024, eşiğin üzerindeki ilk takvim yılı oldu: 1,60 °C.</strong> 2023–2025 ortalaması da ilk kez 1,5°C'nin üzerine çıktı — "siz" işareti bu yüzden çizginin üzerinde duruyor. On beş oturumun tamamı soluk kırmızı bantta, eşiğin en az 0,17 °C altında konuşuldu; en sıcak oturum ayı Ekim 2019'du (1,33 °C). <span style="font-style:italic">2024 was the first calendar year above the threshold; the 2023–2025 average has now crossed it too — that is why the "you" marker stands above the line. All fifteen sessions were spoken inside the pale band, at least 0.17 °C below.</span><br>Veri / data: Copernicus C3S · ERA5 (1850–1900 tabanı; ince çizgi aylık değerler) · NOAA GML Mauna Loa. Temmuz 2026.</p>
-  </div>
-</section>
-
-<section id="gecis" style="padding:0">
-  <div class="wrap">
-    <div class="sec-head rv" style="padding-top:4rem">
-      <div class="sec-label">02<span class="accent">Geçiş / The Crossing</span></div>
-      <div>
-        <h2 class="sec-title">Sayı, çizgiyi <em>geçiyor</em></h2>
-        <p class="sec-desc">Aşağı kaydırın: yıllar ilerler, sayı yükselir, arşivin sesleri eşiğin altından konuşur. 2024'te sayı çizgiyi geçer — kolektifin adı olan sınır, artık bir tavan değil, bir zemin. <span class="en">Scroll: the years advance, the number climbs, the archive speaks from below the line. In 2024 the number crosses — the limit this collective is named after is no longer a ceiling but a floor.</span></p>
-      </div>
-    </div>
-  </div>
-  <div class="xing-track" id="xtrack">
-    <div class="xing-view" id="xview">
-      <div class="xing-line"><span>1,5 °C</span></div>
-      <div class="xing-num" id="xnum"><small id="xyear">2015</small><span id="xval">1,14</span></div>
-      <div class="xing-zone xing-below">aşağısı —<br>arşivin konuştuğu dünya<br><span style="font-weight:300;text-transform:none;letter-spacing:.02em;font-style:italic">the world the archive spoke in</span></div>
-      <div class="xing-zone xing-above">yukarısı —<br>okuduğunuz dünya<br><span style="font-weight:300;text-transform:none;letter-spacing:.02em;font-style:italic">the world you are reading in</span></div>
-      <div class="xing-quote" id="xquote">
-        <p class="q-tr" id="xq-tr"></p>
-        <p class="q-en" id="xq-en"></p>
-        <p class="q-src" id="xq-src"></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="organizma">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="sec-label">03<span class="accent">Organizma / The Organism</span></div>
-      <div>
-        <h2 class="sec-title">Solunum, Sindirim — ve tamamlanmamış döngü</h2>
-        <p class="sec-desc">Arşiv bir metabolizmadır: nefes alır, yutar, dönüştürür. Düğümler oturumlardır; büyüklük metnin uzunluğu, kırmızı yaylar iki program arasındaki metabolik yollardır. Bir düğüme dokunun. <span class="en">The archive is a metabolism. Nodes are sessions; size is text length; red arcs are metabolic pathways between the two programmes. Touch a node.</span></p>
-      </div>
-    </div>
-    <div class="figwrap rv"><div class="fig" id="organism"></div></div>
-    <div class="panel empty" id="panel" aria-live="polite">Bir düğüm seçin — her oturum on dört dilde açılır. / Select a node — every session opens in fourteen languages.</div>
-  </div>
-</section>
-
-<section id="dokuma">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="sec-label">04<span class="accent">Dokuma / The Weave</span></div>
-      <div>
-        <h2 class="sec-title">210 kapı</h2>
-        <p class="sec-desc">Arşivin tamamı tek bakışta: 15 oturum × 14 dil. Her hücre bir kapıdır; her sütun bir konuşma, her satır bir dildir. <span class="en">The whole archive at a glance: fifteen sessions by fourteen languages. Every cell is a door.</span></p>
-      </div>
-    </div>
-    <div class="figwrap rv"><div id="weave"></div></div>
-    <p class="weave-note rv">Diller Türkçeye coğrafi yakınlık sırasıyla dizildi: Anadolu'dan başlayıp dünyaya açılır. Aynı konuşma on dört kez yeniden dokundu — özet değil, çeviri değil yalnızca; her dilde yeniden söylendi. <span style="font-style:italic">The languages run in rings of proximity to Turkish, from Anatolia outward.</span></p>
-  </div>
-</section>
-
-<div class="coda">
-  <div class="wrap">
-    <div class="sec-label">05<span class="accent">Boşaltım / ?</span></div>
-    <div class="coda-text">
-      <div class="ticker">
-        <span class="tk-n" id="tickco2">0</span>
-        <span class="tk-l">ton fosil CO₂ — bu sayfayı açtığınızdan beri / tonnes of fossil CO₂ since you opened this page</span>
-        <div class="tk-src">Global Carbon Budget 2025: ≈ 38,1 Gt/yıl → ≈ 1.207 ton/saniye</div>
-      </div>
-      <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" style="margin-bottom:1.5rem">
-        <circle class="ghost" cx="60" cy="60" r="52"/>
-        <text x="60" y="65" text-anchor="middle" class="ghost-label" style="font-family:Roboto">III — ?</text>
-      </svg>
-      <p>Döngü tamamlanmadı. Solunum aldı, Sindirim dönüştürdü; Boşaltım henüz konuşulmadı. Atıklarımızla — plastiğimizle, karbonumuzla, molozumuzla — henüz yüzleşmedik.</p>
-      <p class="en">The cycle is incomplete. Respiration took in, Digestion transformed; Excretion has not yet been spoken. We have not yet faced what we cast out.</p>
-      <p><strong>Kaybediyoruz — yine de biriktiriyoruz, çeviriyoruz, çoğaltıyoruz.</strong></p>
-      <p class="en">We are losing — still, we gather, we translate, we multiply.</p>
-    </div>
-  </div>
-</div>
+</main>
 
 <footer>
   <div class="wrap">
     <div class="fl"><a href="../" style="text-decoration:none"><span>bir</span>buçuk</a> · İstanbul · ~2016</div>
-    <div class="fr">veri / data: NOAA GML · Copernicus C3S (ERA5) · Temmuz 2026</div>
+    <div class="fr">veri / data: NOAA GML · Mauna Loa</div>
   </div>
 </footer>
 
@@ -399,81 +114,27 @@ document.addEventListener('click',function(ev){
   }
 });
 
-var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 /* ---------- data ---------- */
-/* prog: S = Solunum, D = Sindirim, R = Radyo. co2: NOAA Mauna Loa monthly mean (ppm).
-   anom: ERA5 monthly global anomaly vs 1850–1900 (C3S method), °C. words: TR master body. */
+/* NOAA GML Mauna Loa monthly mean CO2 (ppm), 2015-01 .. 2026-06, fetched July 2026 */
+var CO2M=[400.18,400.55,401.74,403.35,404.15,402.97,401.46,399.11,397.82,398.49,400.27,402.06,402.73,404.25,405.06,407.60,407.90,406.99,404.59,402.45,401.23,401.79,403.72,404.64,406.36,406.66,407.54,409.22,409.89,409.08,407.33,405.32,403.57,403.82,405.31,407.00,408.15,408.52,409.59,410.45,411.44,410.99,408.90,407.16,405.71,406.19,408.21,409.27,411.03,411.96,412.18,413.54,414.86,414.15,411.96,410.17,408.76,408.74,410.47,411.97,413.59,414.32,414.72,416.42,417.28,416.58,414.58,412.75,411.50,411.49,413.10,414.23,415.49,416.72,417.61,419.01,419.09,418.93,416.90,414.42,413.26,413.90,414.97,416.67,418.13,419.24,418.76,420.19,420.97,420.94,418.85,417.15,415.91,415.74,417.47,418.99,419.47,420.31,421.00,423.30,424.01,423.68,421.83,419.68,418.50,418.82,420.46,421.86,422.80,424.55,425.38,426.51,426.90,426.91,425.55,422.99,422.03,422.38,423.85,425.40,426.65,427.09,428.15,429.64,430.51,429.61,427.87,425.48,424.37,424.87,426.46,427.49,428.62,429.35,430.15,431.12,432.34,431.44];
+/* the fifteen sessions; co2 = the Mauna Loa monthly mean of that month */
 var SESS=[
- {tag:'2017.06.17_SU',            prog:'S',topic:'SU',                date:'17 Haziran 2017', y:2017,m:6, d:17,att:6, words:2323,quotes:8, co2:409.08,anom:1.08,
-  tr:"Suyun akma hakkı, HES mücadeleleri, İstanbul'un kapaklanan dereleri, suyun metalaşması",
-  en:"Water's right to flow, HES struggles, Istanbul's buried streams, commodification of water"},
- {tag:'2017.07.22_BIYOCESITLILIK',prog:'S',topic:'BİYOÇEŞİTLİLİK',    date:'22 Temmuz 2017',  y:2017,m:7, d:22,att:6, words:2067,quotes:7, co2:407.33,anom:1.15,
-  tr:"Ekolojik çeşitlilik, tür kaybı, koruma politikaları",
-  en:"Ecological diversity, species loss, conservation policies"},
- {tag:'2017.09.23_METABOLIZMA',   prog:'S',topic:'METABOLİZMA',      date:'23 Eylül 2017',   y:2017,m:9, d:23,att:4, words:1711,quotes:7, co2:403.57,anom:1.16,
-  tr:"Kentsel metabolizma, madde döngüleri, üretim-tüketim",
-  en:"Urban metabolism, material cycles, production-consumption"},
- {tag:'2017.10.07_SINIRLAR',      prog:'S',topic:'SINIRLAR',         date:'7 Ekim 2017',     y:2017,m:10,d:7, att:6, words:1699,quotes:8, co2:403.82,anom:1.24,
-  tr:"Gezegen sınırları, toplumsal sınırlar, sınır aşımları",
-  en:"Planetary boundaries, social limits, boundary crossings"},
- {tag:'2017.12.02_IKLIM',         prog:'S',topic:'İKLİM',            date:'2 Aralık 2017',   y:2017,m:12,d:2, att:4, words:2148,quotes:8, co2:407.00,anom:1.25,
-  tr:"İklim değişikliği, iklim adaleti, adaptasyon ve direniş",
-  en:"Climate change, climate justice, adaptation and resistance"},
- {tag:'2018.02.24_MADEN',         prog:'S',topic:'MADEN',            date:'24 Şubat 2018',   y:2018,m:2, d:24,att:5, words:1869,quotes:7, co2:408.52,anom:1.15,
-  tr:"Madencilik, çıkarmacılık, toprak ve su kirliliği",
-  en:"Mining, extractivism, soil and water pollution"},
- {tag:'2018.03.28_RADYO_ROPORTAJ',prog:'R',topic:'RADYO',            date:'28 Mart 2018',    y:2018,m:3, d:28,att:0, words:2171,quotes:0, co2:409.59,anom:1.16,
-  tr:"Açık Radyo stüdyosunda bir diyalog: kolektifin kendi sesleriyle konuştuğu, anonimleştirilmemiş tek metin",
-  en:"A dialogue at Açık Radyo: the only non-anonymised text — the collective in its own voices"},
- {tag:'2018.04.28_TOPLUMSAL_CINSIYET',prog:'S',topic:'TOPLUMSAL CİNSİYET',date:'28 Nisan 2018',y:2018,m:4,d:28,att:6, words:2445,quotes:14,co2:410.45,anom:1.18,
-  tr:"Ekoloji ve toplumsal cinsiyet, ekofeminizm, bakım emeği",
-  en:"Ecology and gender, ecofeminism, care labour"},
- {tag:'2018.05.26_ENERJI',        prog:'S',topic:'ENERJİ',           date:'26 Mayıs 2018',   y:2018,m:5, d:26,att:7, words:2070,quotes:6, co2:411.44,anom:1.13,
-  tr:"Enerji politikaları, fosil bağımlılık, enerji adaleti",
-  en:"Energy policies, fossil dependency, energy justice"},
- {tag:'2019.01.19_TOPRAK',        prog:'S',topic:'TOPRAK',           date:'19 Ocak 2019',    y:2019,m:1, d:19,att:7, words:2518,quotes:6, co2:411.03,anom:1.16,
-  tr:"Toprak sağlığı, gıda egemenliği, tarımsal dönüşüm",
-  en:"Soil health, food sovereignty, agricultural transformation"},
- {tag:'2019.09.28_SINDIRIM_KAMUSAL_SU',prog:'D',topic:'SU',          date:'28 Eylül 2019',   y:2019,m:9, d:28,att:8, words:1058,quotes:4, co2:408.76,anom:1.25,
-  tr:"Suyun akma hakkı; İstanbul'un su yönetimi krizi; HES'lerle susturulan Karadeniz kültür belleği; Akdeniz'in mikroplastik çorbası",
-  en:"Water's right to flow; Istanbul's water crisis; the Black Sea's memory silenced by dams; the Mediterranean as microplastic soup"},
- {tag:'2019.10.05_SINDIRIM_KAMUSAL_BENZIN',prog:'D',topic:'BENZİN',  date:'5 Ekim 2019',     y:2019,m:10,d:5, att:12,words:1124,quotes:3, co2:408.74,anom:1.33,
-  tr:"Fosil yakıtların suç aleti ilan edilmesi; bir litrenin hesaplanamaz bedeli; müze protestoları ve art wash; Sinop çocuklarının iklim grevi",
-  en:"Declaring fossil fuels a criminal instrument; the incalculable cost of one litre; museum protests and artwashing; the children's climate strike in Sinop"},
- {tag:'2019.10.12_SINDIRIM_KAMUSAL_PATATES',prog:'D',topic:'PATATES',date:'12 Ekim 2019',    y:2019,m:10,d:12,att:11,words:1407,quotes:5, co2:408.74,anom:1.33,
-  tr:"Tohum egemenliği ve endüstriyel tarım; patatesin dünya tarihi; Adapazarı'ndan Boğatepe'ye çiftçi bilgisi; aynı gün Kaz Dağları'nda otuz bin kişilik eylem",
-  en:"Seed sovereignty and industrial agriculture; the potato in world history; farmer knowledge from Adapazarı to Boğatepe; thirty thousand marching in Kaz Dağları the same day"},
- {tag:'2019.10.19_SINDIRIM_KAMUSAL_BETON',prog:'D',topic:'BETON',    date:'19 Ekim 2019',    y:2019,m:10,d:19,att:10,words:1749,quotes:4, co2:408.74,anom:1.33,
-  tr:"Asbest izleri ve bedenin çevresel belleği; İstanbul'un köpekleri ve sarı kamyonlar; yıkıntının bitkileri manifestosu",
-  en:"Asbestos traces and the body as environmental archive; Istanbul's dogs and the yellow trucks; a manifesto of ruderal plants"},
- {tag:'2019.10.26_SINDIRIM_KAMUSAL_ISLEMCI',prog:'D',topic:'İŞLEMCİ',date:'26 Ekim 2019',    y:2019,m:10,d:26,att:12,words:1732,quotes:4, co2:408.74,anom:1.33,
-  tr:"Gezegen olarak büyük işlemci; 1993'ün internet ve Tarkan günü; iklim iletişiminde Tarkancı olmak; çocuk gibi oynamak varken",
-  en:"The planet as the great processor; the day Turkey got the internet; becoming a Tarkan fan of climate action; playing like children while there is still time"}
+ {topic:'SU',                prog:'S',date:'17 Haziran 2017', y:2017,m:6, d:17,co2:409.08},
+ {topic:'BİYOÇEŞİTLİLİK',    prog:'S',date:'22 Temmuz 2017',  y:2017,m:7, d:22,co2:407.33},
+ {topic:'METABOLİZMA',       prog:'S',date:'23 Eylül 2017',   y:2017,m:9, d:23,co2:403.57},
+ {topic:'SINIRLAR',          prog:'S',date:'7 Ekim 2017',     y:2017,m:10,d:7, co2:403.82},
+ {topic:'İKLİM',             prog:'S',date:'2 Aralık 2017',   y:2017,m:12,d:2, co2:407.00},
+ {topic:'MADEN',             prog:'S',date:'24 Şubat 2018',   y:2018,m:2, d:24,co2:408.52},
+ {topic:'RADYO',             prog:'R',date:'28 Mart 2018',    y:2018,m:3, d:28,co2:409.59},
+ {topic:'TOPLUMSAL CİNSİYET',prog:'S',date:'28 Nisan 2018',   y:2018,m:4, d:28,co2:410.45},
+ {topic:'ENERJİ',            prog:'S',date:'26 Mayıs 2018',   y:2018,m:5, d:26,co2:411.44},
+ {topic:'TOPRAK',            prog:'S',date:'19 Ocak 2019',    y:2019,m:1, d:19,co2:411.03},
+ {topic:'SU',                prog:'D',date:'28 Eylül 2019',   y:2019,m:9, d:28,co2:408.76},
+ {topic:'BENZİN',            prog:'D',date:'5 Ekim 2019',     y:2019,m:10,d:5, co2:408.74},
+ {topic:'PATATES',           prog:'D',date:'12 Ekim 2019',    y:2019,m:10,d:12,co2:408.74},
+ {topic:'BETON',             prog:'D',date:'19 Ekim 2019',    y:2019,m:10,d:19,co2:408.74},
+ {topic:'İŞLEMCİ',           prog:'D',date:'26 Ekim 2019',    y:2019,m:10,d:26,co2:408.74}
 ];
-/* ERA5 annual anomaly vs 1850–1900, °C (C3S; 2025 = published final value) */
-var ANNUAL=[[2015,1.14],[2016,1.32],[2017,1.22],[2018,1.14],[2019,1.28],[2020,1.31],[2021,1.16],[2022,1.18],[2023,1.48],[2024,1.60],[2025,1.47]];
-/* annual anomalies 1940–2024 computed from the ERA5 daily series (same method), 2025 appended from the published value */
-var STRIPES=[0.19,0.24,0.15,0.15,0.34,0.21,0.21,0.25,0.19,0.23,0.11,0.25,0.23,0.31,0.11,0.09,0.03,0.28,0.35,0.31,0.27,0.34,0.28,0.32,0.11,0.17,0.25,0.26,0.2,0.33,0.3,0.15,0.29,0.39,0.11,0.14,0.07,0.35,0.3,0.45,0.58,0.62,0.42,0.61,0.4,0.36,0.45,0.6,0.63,0.52,0.75,0.69,0.46,0.51,0.54,0.72,0.59,0.71,0.9,0.63,0.63,0.79,0.88,0.87,0.81,0.97,0.92,0.92,0.78,0.92,1.01,0.87,0.92,0.95,0.99,1.14,1.32,1.22,1.14,1.28,1.31,1.16,1.18,1.48,1.6,1.47];
-/* monthly anomalies from 2015-01 through 2025-06, same method */
-var MONTHLY=[1.07,1.08,1.11,0.94,1.05,1.07,1.04,1.12,1.14,1.32,1.27,1.42,1.43,1.56,1.51,1.41,1.29,1.14,1.24,1.28,1.23,1.22,1.29,1.21,1.28,1.38,1.38,1.21,1.25,1.08,1.15,1.18,1.16,1.24,1.13,1.25,1.12,1.15,1.16,1.18,1.13,1.11,1.16,1.09,1.07,1.23,1.12,1.21,1.16,1.19,1.39,1.32,1.23,1.25,1.28,1.24,1.25,1.33,1.29,1.42,1.46,1.48,1.37,1.4,1.34,1.24,1.2,1.15,1.31,1.26,1.42,1.12,1.12,0.94,1.07,1.07,1.13,1.09,1.21,1.19,1.28,1.3,1.23,1.2,1.16,1.11,1.28,1.16,1.13,1.19,1.26,1.18,1.23,1.29,1.04,1.15,1.12,1.18,1.39,1.2,1.27,1.41,1.6,1.59,1.81,1.73,1.74,1.72,1.58,1.69,1.61,1.55,1.53,1.56,1.56,1.59,1.6,1.68,1.61,1.64,1.67,1.51,1.53,1.48,1.4,1.35];
-/* verbatim anonymised quotes from the published texts (TR master; EN = the audited translation at the same index) */
-var XQUOTES=[
- {tr:'"Kurtaracağımız şeyler bitiyor bu arada. O yüzden benim çok acelem var belki."',
-  en:'"The things we have left to save are running out. That is why I am in such a hurry, perhaps."',src:'SU — 2017'},
- {tr:'"İnsanlık olarak bir saniyeyiz. Ama o bir saniyede, milyarlarca yılın bilgi birikimini siliyoruz."',
-  en:'"As humanity, we are a single second. But in that second, we are erasing the accumulated knowledge of billions of years."',src:'BİYOÇEŞİTLİLİK — 2017'},
- {tr:'"Bunun arkasında ciddi bir büyüme fetişizmi var."',
-  en:'"Behind all of this there is a serious fetishism of growth."',src:'MADEN — 2018'},
- {tr:'"Bu yaşadığımız gezegen üzerinde insanlık yok olsa bile onlar yaşamaya devam edecek."',
-  en:'"Even if humanity ceases to exist on this planet we inhabit, they will continue to live."',src:'TOPRAK — 2019'},
- {tr:'"Evimiz yanıyor. Hiçbir şey yapmamak için bir bahane olamaz. Eyleme geçtiğimizde umut her yerdedir."',
-  en:'"Our house is burning. Nothing can be an excuse for doing nothing. When we take action, hope is everywhere."',src:'BENZİN — 2019'},
- {tr:'"Çoğalarak yok olmamalıyız. Isınarak pes etmemeliyiz. Öleceksek yıldızlar gibi ölmeliyiz. Bir süpernova edasıyla."',
-  en:'"Let us not be extinguished by multiplying. Let us not surrender by warming. If we are to die, let us die like stars. With the air of a supernova."',src:'PATATES — 2019'}
-];
-var LANGS=[['tr','Türkçe'],['ku','Kurdî'],['hy','Հայերեն'],['ar','العربية'],['fa','فارسی'],['hi','हिन्दी'],['ru','Русский'],['el','Ελληνικά'],['it','Italiano'],['es','Español'],['pt','Português'],['fr','Français'],['de','Deutsch'],['en','English']];
-var PROG={S:'Solunum Programı I — 2017–2019', D:'Sindirim Programı II — Kamusal Toplantı, 2019', R:'Açık Radyo 95.0 — Solunum I'};
 
 var SVGNS='http://www.w3.org/2000/svg';
 function el(name,attrs,parent){
@@ -483,7 +144,6 @@ function el(name,attrs,parent){
   return e;
 }
 function fmt(n){return n.toFixed(2).replace('.',',');}
-function decYear(s){return s.y+((s.m-1)+s.d/31)/12;}
 
 /* ---------- tooltip ---------- */
 var tt=document.getElementById('tt');
@@ -496,351 +156,85 @@ function ttMove(ev){
 }
 function ttHide(){tt.style.opacity=0;}
 
-/* ---------- 01 chart ---------- */
+/* ---------- the graph: CO2 vs time, meetings indicated ---------- */
 (function(){
-  var W=1000,H=430,L=56,R=26,T=30,B=46;
+  var W=1000,H=480,L=58,R=30,T=28,B=58;
   var x0=2015,x1=2027;
-  var a0=0.90,a1=1.88;
+  var p0=395,p1=435;
   function X(t){return L+(t-x0)/(x1-x0)*(W-L-R);}
-  function Y(a){return H-B-(a-a0)/(a1-a0)*(H-T-B);}
+  function Y(p){return H-B-(p-p0)/(p1-p0)*(H-T-B);}
   var svg=el('svg',{viewBox:'0 0 '+W+' '+H});
   document.getElementById('chart').appendChild(svg);
 
-  /* sessions' band: the range of the fifteen session months */
-  el('rect',{x:L,y:Y(1.33),width:W-L-R,height:Y(1.08)-Y(1.33),fill:'var(--softer)'},svg);
-  var bl=el('text',{x:X(2026.3),y:Y(1.08)+15,'text-anchor':'end','font-size':9,'font-weight':700,fill:'var(--red)',opacity:.75},svg);
-  bl.textContent='oturumların dünyası / the sessions’ world — 1,08–1,33 °C';
   /* grid + y labels */
-  for(var a=1.0;a<=1.81;a+=0.1){
-    a=Math.round(a*10)/10;
-    el('line',{x1:L,y1:Y(a),x2:W-R,y2:Y(a),stroke:'var(--rule)','stroke-width':a===1.5?0:1},svg);
-    if(a!==1.5){
-      var yl=el('text',{x:L-8,y:Y(a)+3,'text-anchor':'end','font-size':10,fill:'var(--grey)'},svg);
-      yl.textContent=a.toFixed(1).replace('.',',');
-    }
+  for(var p=400;p<=430;p+=10){
+    el('line',{x1:L,y1:Y(p),x2:W-R,y2:Y(p),stroke:'var(--rule)','stroke-width':1},svg);
+    var yl=el('text',{x:L-8,y:Y(p)+3,'text-anchor':'end','font-size':10,fill:'var(--grey)'},svg);
+    yl.textContent=p;
   }
-  /* x labels */
+  var unit=el('text',{x:8,y:T-10,'text-anchor':'start','font-size':9,fill:'var(--grey)'},svg);
+  unit.textContent='ppm CO₂ · Mauna Loa aylık ortalama / monthly mean';
+
+  /* x axis */
   for(var yy=2015;yy<=2026;yy++){
     el('line',{x1:X(yy),y1:H-B,x2:X(yy),y2:H-B+4,stroke:'var(--grey)','stroke-width':1},svg);
     var xl=el('text',{x:X(yy+0.5),y:H-B+18,'text-anchor':'middle','font-size':10,fill:'var(--grey)'},svg);
     if(yy<2026)xl.textContent=yy;
   }
+  el('text',{x:X(2026.46),y:H-B+18,'text-anchor':'middle','font-size':10,fill:'var(--grey)'},svg).textContent='2026';
   el('line',{x1:L,y1:H-B,x2:W-R,y2:H-B,stroke:'var(--grey)','stroke-width':1},svg);
-  /* axis unit */
-  var unit=el('text',{x:8,y:T-12,'text-anchor':'start','font-size':9,fill:'var(--grey)'},svg);
-  unit.textContent='°C · 1850–1900 tabanına göre';
 
-  /* threshold */
-  el('line',{x1:L,y1:Y(1.5),x2:W-R,y2:Y(1.5),stroke:'var(--red)','stroke-width':2},svg);
-  var thl=el('text',{x:L+8,y:Y(1.5)-7,'text-anchor':'start','font-size':13,'font-weight':900,fill:'var(--red)'},svg);
-  thl.textContent='1,5 °C';
+  /* programme labels under the axis */
+  var pl1=el('text',{x:X(2018.2),y:H-B+38,'text-anchor':'middle','font-size':9,'font-weight':700,'letter-spacing':'.12em',fill:'var(--grey)'},svg);
+  pl1.textContent='SOLUNUM I';
+  var pl2=el('text',{x:X(2019.82),y:H-B+38,'text-anchor':'middle','font-size':9,'font-weight':700,'letter-spacing':'.12em',fill:'var(--grey)'},svg);
+  pl2.textContent='SİNDİRİM II';
 
-  /* monthly texture line (2015-01 .. 2025-06) */
-  var mpts=MONTHLY.map(function(v,i){return X(2015+(i+0.5)/12).toFixed(1)+' '+Y(v).toFixed(1);});
-  el('path',{d:'M'+mpts.join(' L'),fill:'none',stroke:'var(--grey)','stroke-width':1,opacity:.45},svg);
+  /* the June 2017 level, carried to today */
+  var yb=Y(409.08);
+  el('line',{x1:X(2017.46),y1:yb,x2:X(2026.75),y2:yb,stroke:'var(--grey)','stroke-width':1,'stroke-dasharray':'3 4',opacity:.7},svg);
+  var bl=el('text',{x:X(2022.5),y:yb+14,'text-anchor':'middle','font-size':9,fill:'var(--grey)'},svg);
+  bl.textContent='Haziran 2017 düzeyi / the June 2017 level — 409,08 ppm';
+  /* the gap, stated by the graph itself */
+  var bx=X(2026.75);
+  el('line',{x1:bx,y1:yb,x2:bx,y2:Y(431.44),stroke:'var(--red)','stroke-width':2},svg);
+  el('line',{x1:bx-4,y1:yb,x2:bx+4,y2:yb,stroke:'var(--red)','stroke-width':2},svg);
+  el('line',{x1:bx-4,y1:Y(431.44),x2:bx+4,y2:Y(431.44),stroke:'var(--red)','stroke-width':2},svg);
+  var gl=el('text',{x:bx-8,y:(yb+Y(431.44))/2+3,'text-anchor':'end','font-size':11,'font-weight':900,fill:'var(--red)'},svg);
+  gl.textContent='+22,36 ppm';
 
-  /* annual line */
-  var pts=ANNUAL.map(function(d){return [X(d[0]+0.5),Y(d[1])];});
-  var path='M'+pts.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1);}).join(' L');
-  var line=el('path',{d:path,fill:'none',stroke:'var(--black)','stroke-width':2},svg);
-  ANNUAL.forEach(function(d,i){
-    el('circle',{cx:X(d[0]+0.5),cy:Y(d[1]),r:3,fill:'var(--black)'},svg);
-    if(d[0]===2024||d[0]===2023||d[0]===2016){
-      var lx=X(d[0]+0.5), ly=Y(d[1])-10, anch='middle';
-      if(d[0]===2023){lx+=9; ly=Y(d[1])+4; anch='start';} /* keep clear of the threshold line */
-      var v=el('text',{x:lx,y:ly,'text-anchor':anch,'font-size':10,'font-weight':d[0]===2024?900:400,fill:d[0]===2024?'var(--red)':'var(--grey)'},svg);
-      v.textContent=fmt(d[1]);
-    }
-  });
-  /* 2024 annotation */
-  var an=el('text',{x:X(2024.5),y:Y(1.60)-26,'text-anchor':'end','font-size':10,'font-weight':700,fill:'var(--red)'},svg);
-  an.textContent='eşiğin üzerindeki ilk yıl →';
+  /* monthly curve */
+  var pts=CO2M.map(function(v,i){return X(2015+(i+0.5)/12).toFixed(1)+' '+Y(v).toFixed(1);});
+  el('path',{d:'M'+pts.join(' L'),fill:'none',stroke:'var(--black)','stroke-width':1.5},svg);
 
-  /* the reader: July 2026, living above the threshold (2023–2025 mean > 1,5) */
-  var ux=X(2026.54), uy=Y(1.5);
-  el('line',{x1:ux,y1:H-B,x2:ux,y2:uy+8,stroke:'var(--red)','stroke-width':1,'stroke-dasharray':'2 4',opacity:.7},svg);
-  el('circle',{cx:ux,cy:uy,r:10,fill:'none',stroke:'var(--red)','stroke-width':1.2,'class':'you-ring'},svg);
-  el('circle',{cx:ux,cy:uy,r:3.5,fill:'var(--red)'},svg);
-  var ut=el('text',{x:ux,y:uy-16,'text-anchor':'end','font-size':10,'font-weight':900,fill:'var(--red)'},svg);
-  ut.textContent='siz / you';
-  var ut2=el('text',{x:ux,y:H-B+18,'text-anchor':'middle','font-size':10,fill:'var(--grey)'},svg);
-  ut2.textContent='2026';
+  /* today */
+  var ex=X(2015+(CO2M.length-0.5)/12), ey=Y(CO2M[CO2M.length-1]);
+  el('circle',{cx:ex,cy:ey,r:3.5,fill:'var(--red)'},svg);
+  var el1=el('text',{x:ex-8,y:ey-10,'text-anchor':'end','font-size':10,'font-weight':900,fill:'var(--red)'},svg);
+  el1.textContent='bugün / today — 431,44';
 
-  /* session dots */
-  SESS.forEach(function(s,i){
-    var cx=X(decYear(s)),cy=Y(s.anom);
+  /* meetings */
+  SESS.forEach(function(s){
+    var t=s.y+((s.m-1)+s.d/31)/12;
+    var cx=X(t), cy=Y(s.co2);
+    el('line',{x1:cx,y1:H-B,x2:cx,y2:cy,stroke:'var(--red)','stroke-width':1,opacity:.45},svg);
     var g=el('g',{cursor:'default'},svg);
-    if(s.prog==='S'){el('circle',{cx:cx,cy:cy,r:4.5,fill:'var(--red)'},g);}
-    else if(s.prog==='D'){el('circle',{cx:cx,cy:cy,r:4.5,fill:'var(--white)',stroke:'var(--red)','stroke-width':1.8},g);}
-    else{el('circle',{cx:cx,cy:cy,r:2.2,fill:'var(--red)'},g);el('circle',{cx:cx,cy:cy,r:5.5,fill:'none',stroke:'var(--red)','stroke-width':.9},g);}
-    /* invisible hit area */
+    if(s.prog==='S'){el('circle',{cx:cx,cy:cy,r:4,fill:'var(--red)'},g);}
+    else if(s.prog==='D'){el('circle',{cx:cx,cy:cy,r:4,fill:'var(--white)',stroke:'var(--red)','stroke-width':1.8},g);}
+    else{el('circle',{cx:cx,cy:cy,r:2,fill:'var(--red)'},g);el('circle',{cx:cx,cy:cy,r:5,fill:'none',stroke:'var(--red)','stroke-width':.9},g);}
     var hit=el('circle',{cx:cx,cy:cy,r:11,fill:'transparent'},g);
     hit.addEventListener('mousemove',function(ev){
-      ttShow('<b>'+s.topic+'</b> — '+s.date+'<br>'+fmt(s.anom)+' °C · '+fmt(s.co2)+' ppm CO₂',ev);
+      ttShow('<b>'+s.topic+'</b> — '+s.date+'<br>'+fmt(s.co2)+' ppm CO₂',ev);
     });
     hit.addEventListener('mouseleave',ttHide);
   });
 
   /* legend */
-  var lg=document.getElementById('chart-legend');
-  lg.innerHTML=
-    '<span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="var(--red)"/></svg><b>Solunum</b> oturumu (ay değeri)</span>'+
-    '<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="none" stroke="var(--red)" stroke-width="1.8"/></svg><b>Sindirim</b> oturumu</span>'+
+  document.getElementById('legend').innerHTML=
+    '<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="var(--red)"/></svg><b>Solunum</b> oturumu / session</span>'+
+    '<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="none" stroke="var(--red)" stroke-width="1.8"/></svg><b>Sindirim</b> oturumu / session</span>'+
     '<span><svg width="14" height="12"><circle cx="7" cy="6" r="2" fill="var(--red)"/><circle cx="7" cy="6" r="5" fill="none" stroke="var(--red)" stroke-width=".9"/></svg><b>Radyo</b></span>'+
-    '<span><svg width="18" height="12"><line x1="0" y1="6" x2="18" y2="6" stroke="var(--black)" stroke-width="2"/></svg>yıllık ortalama / annual mean</span>'+
-    '<span><svg width="18" height="12"><line x1="0" y1="6" x2="18" y2="6" stroke="var(--grey)" stroke-width="1" opacity=".6"/></svg>aylık / monthly</span>'+
-    '<span><svg width="18" height="12"><line x1="0" y1="6" x2="18" y2="6" stroke="var(--red)" stroke-width="2"/></svg>1,5 °C eşiği / threshold</span>'+
-    '<span><svg width="14" height="12"><circle cx="7" cy="6" r="3" fill="var(--red)"/><circle cx="7" cy="6" r="5.5" fill="none" stroke="var(--red)" stroke-width="1"/></svg><b>siz / you</b> — Temmuz 2026</span>';
-
-  /* draw-on-scroll */
-  if(!reduced){
-    var len=line.getTotalLength();
-    line.style.strokeDasharray=len;
-    line.style.strokeDashoffset=len;
-    var io=new IntersectionObserver(function(en){
-      if(en[0].isIntersecting){
-        line.style.transition='stroke-dashoffset 2.2s ease';
-        line.style.strokeDashoffset=0;
-        io.disconnect();
-      }
-    },{threshold:.4});
-    io.observe(svg);
-  }
-})();
-
-/* ---------- 02 organism ---------- */
-(function(){
-  var W=1000,H=560;
-  var svg=el('svg',{viewBox:'0 0 '+W+' '+H});
-  document.getElementById('organism').appendChild(svg);
-  var POS=[
-    [300,95],[422,128],[478,225],[462,335],[388,420],
-    [272,448],[168,402],[112,308],[118,196],[190,118],
-    [700,125],[812,172],[848,278],[786,378],[668,400]
-  ];
-  /* lobe labels */
-  var l1=el('text',{x:295,y:36,'text-anchor':'middle','class':'lobe-label'},svg); l1.textContent='SOLUNUM I — 2017–2019';
-  var l2=el('text',{x:760,y:66,'text-anchor':'middle','class':'lobe-label'},svg); l2.textContent='SİNDİRİM II — 2019';
-  /* ghost lobe */
-  el('circle',{cx:900,cy:495,r:46,'class':'ghost'},svg);
-  var gl=el('text',{x:900,y:499,'text-anchor':'middle','class':'ghost-label'},svg); gl.textContent='III — ?';
-
-  /* metabolic arcs (drawn beneath nodes) */
-  var arcs=[[0,10,'M300 95 Q 500 15 700 125'],[8,11,'M118 196 Q 470 -30 812 172'],
-            [9,12,'M190 118 Q 560 60 848 278'],[5,13,'M272 448 Q 530 560 786 378'],
-            [2,14,'M478 225 Q 580 340 668 400']];
-  arcs.forEach(function(a){el('path',{d:a[2],'class':'arc'},svg);});
-
-  var panel=document.getElementById('panel');
-  var active=null;
-  function radius(w){return 9+w/160;}
-
-  function select(i,node){
-    if(active)active.classList.remove('active');
-    active=node; node.classList.add('active');
-    var s=SESS[i];
-    var langs=LANGS.map(function(L){
-      return '<a href="../'+L[0]+'/'+s.tag+'.html" title="'+L[1]+'">'+L[0].toUpperCase()+'</a>';
-    }).join('');
-    var stats='';
-    if(s.prog!=='R'){stats+='<div class="p-stat"><div class="n">'+s.att+'</div><div class="l">katılımcı</div></div>';}
-    stats+='<div class="p-stat"><div class="n">'+s.words.toLocaleString('tr-TR')+'</div><div class="l">kelime (TR)</div></div>';
-    if(s.quotes){stats+='<div class="p-stat"><div class="n">'+s.quotes+'</div><div class="l">alıntı</div></div>';}
-    stats+='<div class="p-stat"><div class="n">'+fmt(s.co2)+'</div><div class="l">ppm CO₂</div></div>';
-    stats+='<div class="p-stat"><div class="n">'+fmt(s.anom)+' °C</div><div class="l">o ayki sapma</div></div>';
-    panel.className='panel';
-    panel.innerHTML=
-      '<div><div class="p-prog">'+PROG[s.prog]+'</div><div class="p-topic">'+s.topic+'</div><div class="p-date">'+s.date+'</div></div>'+
-      '<div class="p-ctx">'+s.tr+'.<span class="en">'+s.en+'.</span></div>'+
-      '<div><div class="p-stats">'+stats+'</div><div class="p-langs">'+langs+'</div></div>';
-  }
-
-  SESS.forEach(function(s,i){
-    var p=POS[i], r=radius(s.words);
-    var g=el('g',{'class':'node',tabindex:0,role:'button','aria-label':s.topic+' — '+s.date},svg);
-    if(s.prog==='R'){
-      el('circle',{cx:p[0],cy:p[1],r:r,'class':'c'},g);
-      el('circle',{cx:p[0],cy:p[1],r:r+5,fill:'none',stroke:'var(--grey)','stroke-width':.8,'stroke-dasharray':'2 3'},g);
-    }else{
-      var c=el('circle',{cx:p[0],cy:p[1],r:r,'class':'c'},g);
-      if(!reduced)c.style.animationDelay=(-(i*0.55))+'s';
-    }
-    if(s.prog==='D'){el('circle',{cx:p[0],cy:p[1],r:3,fill:'var(--red)'},g);}
-    var lab=el('text',{x:p[0],y:p[1]+r+15,'text-anchor':'middle','class':'nl'},g);
-    lab.textContent=s.topic;
-    var dat=el('text',{x:p[0],y:p[1]+r+27,'text-anchor':'middle','class':'nd'},g);
-    dat.textContent=s.date;
-    g.addEventListener('click',function(){select(i,g);});
-    g.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select(i,g);}});
-    g.addEventListener('mousemove',function(ev){ttShow('<b>'+s.topic+'</b> — '+s.date+'<br>'+s.words.toLocaleString('tr-TR')+' kelime · '+fmt(s.anom)+' °C',ev);});
-    g.addEventListener('mouseleave',ttHide);
-  });
-})();
-
-/* ---------- 03 weave ---------- */
-(function(){
-  var wv=document.getElementById('weave');
-  var grid=document.createElement('div');
-  grid.className='weave';
-  grid.style.gridTemplateColumns='auto repeat('+SESS.length+', 34px)';
-  var corner=document.createElement('div');corner.className='w-corner';grid.appendChild(corner);
-  var shortTopic=function(s){
-    var t=s.topic;
-    if(t==='BİYOÇEŞİTLİLİK')t='BİYOÇEŞ.';
-    if(t==='TOPLUMSAL CİNSİYET')t='T. CİNSİYET';
-    if(t==='METABOLİZMA')t='METABOL.';
-    return t;
-  };
-  SESS.forEach(function(s,ci){
-    var h=document.createElement('div');
-    h.className='w-top';h.dataset.c=ci;
-    h.innerHTML=(s.prog==='D'?'<i>'+shortTopic(s)+'</i>':shortTopic(s))+'&nbsp;·&nbsp;'+s.y;
-    h.title=s.topic+' — '+s.date;
-    grid.appendChild(h);
-  });
-  LANGS.forEach(function(L,ri){
-    var lh=document.createElement('div');
-    lh.className='w-lang';lh.dataset.r=ri;lh.textContent=L[0].toUpperCase();lh.title=L[1];
-    grid.appendChild(lh);
-    SESS.forEach(function(s,ci){
-      var a=document.createElement('a');
-      a.className='w-cell';a.href='../'+L[0]+'/'+s.tag+'.html';
-      a.dataset.r=ri;a.dataset.c=ci;
-      a.setAttribute('aria-label',s.topic+' ('+s.date+') — '+L[1]);
-      a.addEventListener('mouseenter',function(){hl(ri,ci,true);});
-      a.addEventListener('mouseleave',function(){hl(ri,ci,false);});
-      grid.appendChild(a);
-    });
-  });
-  function hl(r,c,on){
-    var all=grid.querySelectorAll('[data-r="'+r+'"],[data-c="'+c+'"]');
-    for(var i=0;i<all.length;i++){all[i].classList.toggle('hl',on);}
-  }
-  wv.appendChild(grid);
-})();
-
-/* ---------- hero counters + co2 bar ---------- */
-(function(){
-  var els=document.querySelectorAll('[data-count]');
-  function run(){
-    els.forEach(function(e){
-      var target=+e.dataset.count, isK=e.dataset.fmt==='k', t0=null, dur=1600;
-      if(reduced){e.textContent=isK?'~500.000':target;return;}
-      function step(ts){
-        if(!t0)t0=ts;
-        var p=Math.min((ts-t0)/dur,1);p=1-Math.pow(1-p,3);
-        var v=Math.round(target*p);
-        e.textContent=isK?('~'+(v).toLocaleString('tr-TR')):v;
-        if(p<1)requestAnimationFrame(step);
-        else if(isK)e.textContent='~500.000';
-      }
-      requestAnimationFrame(step);
-    });
-    var bar=document.getElementById('co2bar');
-    requestAnimationFrame(function(){bar.style.width='100%';});
-    /* settle fallback: rAF can be throttled (background/battery-saver tabs) */
-    setTimeout(function(){
-      els.forEach(function(e){e.textContent=e.dataset.fmt==='k'?'~500.000':e.dataset.count;});
-      bar.style.width='100%';
-    },2600);
-  }
-  var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){run();io.disconnect();}},{threshold:.3});
-  io.observe(document.getElementById('stats'));
-})();
-
-/* ---------- warming stripes ---------- */
-(function(){
-  var n=STRIPES.length;
-  var svg=el('svg',{viewBox:'0 0 '+n+' 10',preserveAspectRatio:'none'});
-  svg.setAttribute('style','width:100%;height:72px;display:block');
-  document.getElementById('stripes').appendChild(svg);
-  STRIPES.forEach(function(v,i){
-    var op=Math.max(0.05, v/1.7);
-    var r=el('rect',{x:i,y:0,width:1.02,height:10,fill:'var(--red)','fill-opacity':op.toFixed(3)},svg);
-    r.addEventListener('mousemove',function(ev){ttShow('<b>'+(1940+i)+'</b> — '+fmt(v)+' °C',ev);});
-    r.addEventListener('mouseleave',ttHide);
-  });
-})();
-
-/* ---------- the crossing ---------- */
-(function(){
-  var track=document.getElementById('xtrack'), view=document.getElementById('xview');
-  var num=document.getElementById('xnum'), val=document.getElementById('xval'), yr=document.getElementById('xyear');
-  var qbox=document.getElementById('xquote'), qtr=document.getElementById('xq-tr'), qen=document.getElementById('xq-en'), qsrc=document.getElementById('xq-src');
-  var series=ANNUAL.slice(0,10); /* 2015..2024 — the journey ends on the crossing year */
-  function interp(fy){ /* fractional year -> anomaly, linear between annual points */
-    var i=Math.floor(fy)-2015;
-    if(i<0)return series[0][1];
-    if(i>=series.length-1)return series[series.length-1][1];
-    var f=fy-Math.floor(fy);
-    return series[i][1]+(series[i+1][1]-series[i][1])*f;
-  }
-  var curQ=-1;
-  function setQuote(i){
-    if(i===curQ)return;
-    curQ=i;
-    if(i<0){qbox.classList.remove('show');return;}
-    var q=XQUOTES[i];
-    qbox.classList.remove('show');
-    setTimeout(function(){
-      if(curQ!==i)return;
-      qtr.textContent=q.tr; qen.textContent=q.en; qsrc.textContent=q.src+' — eşiğin altından / from below the threshold';
-      qbox.classList.add('show');
-    },250);
-  }
-  function endState(){
-    val.textContent='1,60'; yr.textContent='2024';
-    num.classList.add('hot'); view.classList.add('crossed');
-    num.style.transform='translateY(-10vh)';
-    setQuote(5);
-  }
-  if(reduced){ endState(); return; }
-  var vh=window.innerHeight;
-  window.addEventListener('resize',function(){vh=window.innerHeight;});
-  var ticking=false;
-  function update(){
-    ticking=false;
-    var rect=track.getBoundingClientRect();
-    var total=rect.height-vh;
-    if(total<=0){endState();return;}
-    var p=Math.min(1,Math.max(0,-rect.top/total));
-    var fy=2015+p*9; /* 2015 -> 2024 */
-    var v=interp(fy);
-    val.textContent=fmt(v);
-    yr.textContent=Math.floor(fy);
-    /* the number physically crosses the red line as the value crosses 1,5 */
-    var ty=(1.5-v)*80; /* vh per °C */
-    num.style.transform='translateY('+Math.max(-14,Math.min(30,ty))+'vh)';
-    var crossed=v>=1.5;
-    num.classList.toggle('hot',crossed);
-    view.classList.toggle('crossed',crossed);
-    var qi=p<0.04?-1:Math.min(5,Math.floor((p-0.04)/0.16));
-    setQuote(qi);
-  }
-  window.addEventListener('scroll',function(){
-    if(!ticking){ticking=true;requestAnimationFrame(update);}
-  },{passive:true});
-  update();
-})();
-
-/* ---------- fossil CO2 ticker ---------- */
-(function(){
-  var e=document.getElementById('tickco2');
-  var RATE=38.1e9/31556952; /* ≈1207 t/s, GCB 2025 */
-  var t0=Date.now(); /* "since you opened this page" — counts from load */
-  setInterval(function(){
-    e.textContent=Math.floor((Date.now()-t0)/1000*RATE).toLocaleString('tr-TR');
-  },reduced?1000:150);
-})();
-
-/* ---------- reveal ---------- */
-(function(){
-  var rvs=document.querySelectorAll('.rv');
-  if(reduced){rvs.forEach(function(e){e.classList.add('in');});return;}
-  var io=new IntersectionObserver(function(ens){
-    ens.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
-  },{threshold:.15});
-  rvs.forEach(function(e){io.observe(e);});
+    '<span><svg width="18" height="12"><line x1="0" y1="6" x2="18" y2="6" stroke="var(--black)" stroke-width="1.5"/></svg>aylık CO₂ / monthly CO₂</span>';
 })();
 
 })();
