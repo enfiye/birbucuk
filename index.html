@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>birbuçuk</title>
+<meta name="description" content="birbuçuk — İstanbul merkezli politik ekoloji kolektifi. Solunum ve Sindirim programlarının metin arşivi, 14 dilde. Political ecology texts from Istanbul in 14 languages.">
+<link rel="canonical" href="https://birbucuk.net/">
+<link rel="alternate" hreflang="tr" href="https://birbucuk.net/tr/">
+<link rel="alternate" hreflang="ku" href="https://birbucuk.net/ku/">
+<link rel="alternate" hreflang="hy" href="https://birbucuk.net/hy/">
+<link rel="alternate" hreflang="ar" href="https://birbucuk.net/ar/">
+<link rel="alternate" hreflang="fa" href="https://birbucuk.net/fa/">
+<link rel="alternate" hreflang="hi" href="https://birbucuk.net/hi/">
+<link rel="alternate" hreflang="ru" href="https://birbucuk.net/ru/">
+<link rel="alternate" hreflang="el" href="https://birbucuk.net/el/">
+<link rel="alternate" hreflang="it" href="https://birbucuk.net/it/">
+<link rel="alternate" hreflang="es" href="https://birbucuk.net/es/">
+<link rel="alternate" hreflang="pt" href="https://birbucuk.net/pt/">
+<link rel="alternate" hreflang="fr" href="https://birbucuk.net/fr/">
+<link rel="alternate" hreflang="de" href="https://birbucuk.net/de/">
+<link rel="alternate" hreflang="en" href="https://birbucuk.net/en/">
+<link rel="alternate" hreflang="x-default" href="https://birbucuk.net/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="birbuçuk">
+<meta property="og:title" content="birbuçuk">
+<meta property="og:description" content="birbuçuk — İstanbul merkezli politik ekoloji kolektifi. Solunum ve Sindirim programlarının metin arşivi, 14 dilde. Political ecology texts from Istanbul in 14 languages.">
+<meta property="og:url" content="https://birbucuk.net/">
+<meta property="og:locale" content="tr">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --bg:#fff; --text:#111; --mute:#777; --rule:#ddd; --red:#CC0000; --hover:#fafafa; }
+  :root[data-theme="dark"] { --bg:#12141a; --text:#ebe7df; --mute:#888c95; --rule:#262b34; --red:#ff5050; --hover:#181c25; }
+  :root[data-theme="dirt"] { --bg:#1b1812; --text:#ebe0c8; --mute:#8a7d62; --rule:#2e271e; --red:#df5b30; --hover:#221d15; }
+  html { background: var(--bg); }
+  body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; transition: background-color 0.18s ease, color 0.18s ease; }
+  .topbar { height: 4px; background: var(--red); }
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4rem 2rem; position: relative; }
+  h1 { font-size: 5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 3rem; }
+  h1 span { color: var(--red); }
+  .langs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--text); border: 1.5px solid var(--text); width: 100%; max-width: 480px; }
+  .langs a { background: var(--bg); padding: 2rem; text-decoration: none; text-align: center; transition: background 0.12s; }
+  .langs a:hover { background: var(--hover); }
+  .langs a .code { font-size: 1.4rem; font-weight: 900; color: var(--text); letter-spacing: 0.05em; display: block; }
+  .langs a .name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mute); margin-top: 0.25rem; display: block; }
+  .langs a:hover .code { color: var(--red); }
+  .side-link { margin-top: 1.75rem; font-size: 0.72rem; font-weight: 300; color: var(--mute); text-decoration: none; letter-spacing: 0.04em; }
+  .side-link b { color: var(--red); font-weight: 700; }
+  .side-link:hover { color: var(--text); }
+  footer { border-top: 1px solid var(--rule); padding: 1rem 2rem; text-align: center; font-size: 0.72rem; color: var(--mute); font-weight: 300; transition: border-color 0.18s ease, color 0.18s ease; }
+  .theme-switch { position: absolute; top: 1.5rem; right: 1.5rem; display: flex; gap: 0.35rem; }
+  .theme-switch button { background: transparent; border: 1px solid var(--rule); color: var(--mute); font: inherit; font-size: 0.95rem; line-height: 1; padding: 0.25rem 0.5rem; cursor: pointer; transition: color 0.12s, border-color 0.12s; }
+  .theme-switch button:hover, .theme-switch button.active { color: var(--red); border-color: var(--red); }
+  @media (max-width: 480px) { h1 { font-size: 3rem; } .theme-switch { top: 1rem; right: 1rem; } }
+</style>
+<script>(function(){try{var t=localStorage.getItem('birbucuk-theme');if(t==='dark'||t==='dirt')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<div class="topbar"></div>
+<main>
+  <div class="theme-switch"><button type="button" data-theme-btn="light" title="Light" aria-label="Light theme">L</button><button type="button" data-theme-btn="dirt" title="Dirt" aria-label="Dirt theme">E</button><button type="button" data-theme-btn="dark" title="Dark" aria-label="Dark theme">D</button></div>
+  <h1><span>bir</span>buçuk</h1>
+  <div class="langs">
+    <a href="tr/"><span class="code">TR</span><span class="name">Türkçe</span></a>
+    <a href="ku/"><span class="code">KU</span><span class="name">Kurdî</span></a>
+    <a href="hy/"><span class="code">HY</span><span class="name">Հայերեն</span></a>
+    <a href="ar/"><span class="code">AR</span><span class="name">العربية</span></a>
+    <a href="fa/"><span class="code">FA</span><span class="name">فارسی</span></a>
+    <a href="hi/"><span class="code">HI</span><span class="name">हिन्दी</span></a>
+    <a href="ru/"><span class="code">RU</span><span class="name">Русский</span></a>
+    <a href="el/"><span class="code">EL</span><span class="name">Ελληνικά</span></a>
+    <a href="it/"><span class="code">IT</span><span class="name">Italiano</span></a>
+    <a href="es/"><span class="code">ES</span><span class="name">Español</span></a>
+    <a href="pt/"><span class="code">PT</span><span class="name">Português</span></a>
+    <a href="fr/"><span class="code">FR</span><span class="name">Français</span></a>
+    <a href="de/"><span class="code">DE</span><span class="name">Deutsch</span></a>
+    <a href="en/"><span class="code">EN</span><span class="name">English</span></a>
+  </div>
+  <a class="side-link" href="esik/"><b>1,5</b> — eşik · deneysel arayüz / threshold · experimental interface</a>
+</main>
+<footer><span style="color:var(--red);font-weight:900;">bir</span>buçuk · İstanbul · ~2016</footer>
+<script>
+(function(){
+  function apply(t){
+    if(t==='light'){document.documentElement.removeAttribute('data-theme');}
+    else{document.documentElement.setAttribute('data-theme',t);}
+    try{localStorage.setItem('birbucuk-theme',t);}catch(e){}
+    var bs=document.querySelectorAll('[data-theme-btn]');
+    for(var i=0;i<bs.length;i++){bs[i].classList.toggle('active',bs[i].getAttribute('data-theme-btn')===t);}
+  }
+  var cur='light';
+  try{cur=localStorage.getItem('birbucuk-theme')||'light';}catch(e){}
+  function init(){
+    apply(cur);
+    document.addEventListener('click',function(ev){
+      var el=ev.target;
+      while(el && el!==document){
+        if(el.getAttribute && el.getAttribute('data-theme-btn')){
+          ev.preventDefault();
+          apply(el.getAttribute('data-theme-btn'));
+          return;
+        }
+        el=el.parentNode;
+      }
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>404 — birbuçuk</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --bg:#fff; --text:#111; --mute:#777; --rule:#ddd; --red:#CC0000; }
+  :root[data-theme="dark"] { --bg:#12141a; --text:#ebe7df; --mute:#888c95; --rule:#262b34; --red:#ff5050; }
+  :root[data-theme="dirt"] { --bg:#1b1812; --text:#ebe0c8; --mute:#8a7d62; --rule:#2e271e; --red:#df5b30; }
+  html { background: var(--bg); }
+  body { font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  .topbar { height: 4px; background: var(--red); }
+  main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4rem 2rem; text-align: center; }
+  .code { font-size: 6rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--red); }
+  .msg { margin-top: 1.5rem; font-size: 0.95rem; color: var(--mute); font-weight: 300; }
+  a.home { display: inline-block; margin-top: 2.5rem; padding: 0.8rem 1.6rem; border: 1.5px solid var(--text); color: var(--text); text-decoration: none; font-weight: 900; font-size: 0.95rem; letter-spacing: 0.02em; transition: color 0.12s, border-color 0.12s; }
+  a.home:hover { color: var(--red); border-color: var(--red); }
+  a.home span { color: var(--red); }
+  footer { border-top: 1px solid var(--rule); padding: 1rem 2rem; text-align: center; font-size: 0.72rem; color: var(--mute); font-weight: 300; }
+</style>
+<script>(function(){try{var t=localStorage.getItem('birbucuk-theme');if(t==='dark'||t==='dirt')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<div class="topbar"></div>
+<main>
+  <div class="code">404</div>
+  <p class="msg">Sayfa bulunamadı — Page not found — الصفحة غير موجودة — Страница не найдена</p>
+  <a class="home" href="/"><span>bir</span>buçuk →</a>
+</main>
+<footer>birbuçuk — Istanbul</footer>
+</body>
+</html>
