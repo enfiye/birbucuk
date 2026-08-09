@@ -21,7 +21,7 @@ Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. Dokuz buluşma + bir
 ```
 site/
   CNAME               — birbucuk.net
-  index.html          — Dil seçim sayfası (14 dil, 7×2 ızgara, yakınlık sırası)
+  index.html          — Türkçe sayfa, kök adreste (tr/index.html'den üretilir)
   style.css
   tr/ ku/ hy/ ar/ fa/ hi/ ru/ el/ it/ es/ pt/ fr/ de/ en/
     index.html        — Dil arşivi

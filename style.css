@@ -91,7 +91,8 @@ footer .fr { font-size: 0.72rem; color: var(--grey); font-weight: 300; }
 
 /* ---------- Theme switcher ---------- */
 .theme-switch { display: flex; gap: 0.35rem; margin-left: 1rem; }
-.theme-switch button { background: transparent; border: 1px solid var(--rule); color: var(--grey); font: inherit; font-size: 0.85rem; line-height: 1; padding: 0.18rem 0.42rem; cursor: pointer; transition: color 0.12s, border-color 0.12s, background-color 0.12s; }
+.theme-switch button { background: transparent; border: 1px solid var(--rule); color: var(--grey); font: inherit; line-height: 1; padding: 0.3rem 0.42rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: color 0.12s, border-color 0.12s, background-color 0.12s; }
+.theme-switch button svg { display: block; width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .theme-switch button:hover { color: var(--red); border-color: var(--red); }
 .theme-switch button.active { color: var(--red); border-color: var(--red); }
 @media (max-width: 900px) { .theme-switch { margin-left: 0; } }
