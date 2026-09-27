@@ -80,7 +80,7 @@ footer .fr { font-size:.68rem; color:var(--grey); font-weight:300; }
     </div>
     <div class="figwrap"><div class="fig" id="chart" role="img" aria-label="1850–1900 tabanına göre küresel sıcaklık sapması 2015–2025; kırmızı 1,5 derece eşiği, 2024'te aşılıyor; birbuçuk oturumları kendi aylarının değerinde işaretli"></div></div>
     <div class="legend" id="legend"></div>
-    <p class="fig-cap"><strong>2024, eşiğin üzerindeki ilk takvim yılı oldu: 1,60 °C.</strong> 2023–2025 ortalaması da ilk kez 1,5°C'nin üzerine çıktı. On beş oturumun tamamı eşiğin en az 0,17 °C altında konuşuldu; en sıcak oturum ayı Ekim 2019'du (1,33 °C). <span style="font-style:italic">2024 was the first calendar year above the threshold; the 2023–2025 average has now crossed it too. All fifteen sessions were spoken at least 0.17 °C below; the warmest session month was October 2019.</span><br>Veri / data: Copernicus C3S · ERA5, 1850–1900 tabanına göre; ince çizgi aylık değerler · Temmuz 2026.</p>
+    <p class="fig-cap"><strong>2024, eşiğin üzerindeki ilk takvim yılı oldu: 1,60 °C.</strong> 2023–2025 ortalaması da ilk kez 1,5°C'nin üzerine çıktı. On beş oturumun tamamı eşiğin en az 0,17 °C altında konuşuldu; en sıcak oturum ayı Ekim 2019'du (1,33 °C). <span style="font-style:italic">2024 was the first calendar year above the threshold; the 2023–2025 average has now crossed it too. All fifteen sessions were spoken at least 0.17 °C below; the warmest session month was October 2019.</span><br>Veri / data: Copernicus C3S · ERA5, 1850–1900 tabanına göre; ince çizgi aylık değerler · Ağustos 2026.</p>
   </div>
 </main>
 
@@ -120,7 +120,7 @@ document.addEventListener('click',function(ev){
    Annual 2015–2024 computed from the C3S daily series (matches published values);
    2025 is the published final value. Monthly runs 2015-01 .. 2025-06. */
 var ANNUAL=[[2015,1.14],[2016,1.32],[2017,1.22],[2018,1.14],[2019,1.28],[2020,1.31],[2021,1.16],[2022,1.18],[2023,1.48],[2024,1.60],[2025,1.47]];
-var MONTHLY=[1.07,1.08,1.11,0.94,1.05,1.07,1.04,1.12,1.14,1.32,1.27,1.42,1.43,1.56,1.51,1.41,1.29,1.14,1.24,1.28,1.23,1.22,1.29,1.21,1.28,1.38,1.38,1.21,1.25,1.08,1.15,1.18,1.16,1.24,1.13,1.25,1.12,1.15,1.16,1.18,1.13,1.11,1.16,1.09,1.07,1.23,1.12,1.21,1.16,1.19,1.39,1.32,1.23,1.25,1.28,1.24,1.25,1.33,1.29,1.42,1.46,1.48,1.37,1.4,1.34,1.24,1.2,1.15,1.31,1.26,1.42,1.12,1.12,0.94,1.07,1.07,1.13,1.09,1.21,1.19,1.28,1.3,1.23,1.2,1.16,1.11,1.28,1.16,1.13,1.19,1.26,1.18,1.23,1.29,1.04,1.15,1.12,1.18,1.39,1.2,1.27,1.41,1.6,1.59,1.81,1.73,1.74,1.72,1.58,1.69,1.61,1.55,1.53,1.56,1.56,1.59,1.6,1.68,1.61,1.64,1.67,1.51,1.53,1.48,1.4,1.35];
+var MONTHLY=[1.07,1.08,1.11,0.94,1.05,1.07,1.04,1.12,1.14,1.32,1.27,1.42,1.43,1.56,1.51,1.41,1.29,1.14,1.24,1.28,1.23,1.22,1.29,1.21,1.28,1.38,1.38,1.21,1.25,1.08,1.15,1.18,1.16,1.24,1.13,1.25,1.12,1.15,1.16,1.18,1.13,1.11,1.16,1.09,1.07,1.23,1.12,1.21,1.16,1.19,1.39,1.32,1.23,1.25,1.28,1.24,1.25,1.33,1.29,1.42,1.46,1.48,1.37,1.4,1.34,1.24,1.2,1.15,1.31,1.26,1.42,1.12,1.12,0.94,1.07,1.07,1.13,1.09,1.21,1.19,1.28,1.3,1.23,1.2,1.16,1.11,1.28,1.16,1.13,1.19,1.26,1.18,1.23,1.29,1.04,1.15,1.12,1.18,1.39,1.2,1.27,1.41,1.6,1.59,1.81,1.73,1.74,1.72,1.58,1.69,1.61,1.55,1.53,1.56,1.56,1.59,1.6,1.68,1.61,1.64,1.67,1.51,1.53,1.48,1.4,1.35,1.33,1.37,1.54,1.58,1.53,1.37,1.39,1.42,1.41,1.4,1.43,1.44,1.55,1.73];
 /* the fifteen sessions; anom = that month's global anomaly */
 var SESS=[
  {topic:'SU',                prog:'S',date:'17 Haziran 2017', y:2017,m:6, d:17,anom:1.08},
@@ -163,7 +163,7 @@ function ttHide(){tt.style.opacity=0;}
 /* ---------- the graph: temperature vs time, the 1,5 line, meetings indicated ---------- */
 (function(){
   var W=1000,H=480,L=58,R=30,T=28,B=58;
-  var x0=2015,x1=2026.4;
+  var x0=2015,x1=2026.75;
   var a0=0.90,a1=1.88;
   function X(t){return L+(t-x0)/(x1-x0)*(W-L-R);}
   function Y(a){return H-B-(a-a0)/(a1-a0)*(H-T-B);}
@@ -184,7 +184,7 @@ function ttHide(){tt.style.opacity=0;}
   /* x axis */
   for(var yy=2015;yy<=2026;yy++){
     el('line',{x1:X(yy),y1:H-B,x2:X(yy),y2:H-B+4,stroke:'var(--grey)','stroke-width':1},svg);
-    if(yy<2026){
+    if(yy<=2026){
       var xl=el('text',{x:X(yy+0.5),y:H-B+18,'text-anchor':'middle','font-size':10,fill:'var(--grey)'},svg);
       xl.textContent=yy;
     }

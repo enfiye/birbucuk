@@ -14,6 +14,9 @@ Studio-X İstanbul'da kapalı yuvarlak masa toplantıları. Dokuz buluşma + bir
 ### Sindirim (2019)
 16. İstanbul Bienali kapsamında WORLBMON'da (MSGSÜ İstanbul Resim ve Heykel Müzesi) gerçekleştirilen kamusal buluşmalar. Beş nesne: Su, Benzin, Patates, Beton, İşlemci.
 
+### Boşaltım (2026–)
+Üçüncü program, hazırlıkta.
+
 ---
 
 ## Arşiv Yapısı
