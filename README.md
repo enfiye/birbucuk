@@ -32,7 +32,7 @@ site/
     pdf/              — PDF'ler (15 per language)
 ```
 
-210 oturum belgesi: 15 oturum × 14 dil (TR, KU, HY, AR, FA, HI, RU, EL, IT, ES, PT, FR, DE, EN).
+165 oturum belgesi: 15 oturum × 11 dil (TR, AR, FA, RU, EL, IT, ES, PT, FR, DE, EN). Kürtçe, Ermenice ve Hintçe, her biri için yetkin bir editörle çalışılana dek yayından kaldırıldı (Eylül 2026).
 
 **Türkçe metinler kaynak/otorite.** Tüm çeviriler doğrudan Türkçe'den yapılmıştır.
 
